@@ -17,6 +17,7 @@ import { RestaurantComponent } from './components/restaurant/restaurant.componen
 import { MenuItemComponent } from './componenets/menu-item/menu-item.component';
 import { ReservationListComponent } from './componenets/reservation-list/reservation-list.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     RestaurantComponent,
     MenuItemComponent,
     ReservationListComponent,
-    ReservationComponent
+    ReservationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
