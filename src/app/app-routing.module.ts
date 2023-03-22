@@ -14,10 +14,6 @@ const routes: Routes = [
     component: ListOfRestaurantsComponent
   },
   {
-    path: '**',
-    component: LoginComponent
-  },
-  {
     path: 'currentReservations',
     component: CurrentReservationsComponent
   },
@@ -36,6 +32,10 @@ const routes: Routes = [
   {
     path: 'myReservations',
     component: MyReservationsComponent
+  },
+  {
+    path: '**',
+    component: LoginComponent
   }
 ];
 

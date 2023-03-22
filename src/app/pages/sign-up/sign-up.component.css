@@ -1,0 +1,14 @@
+.title {
+    font-size: 200%;
+    text-align: center;
+}
+
+.header {
+    background-color:deepskyblue;
+    width: 50%;
+    margin: auto;
+}
+
+.customer-type {
+    margin: auto;
+}

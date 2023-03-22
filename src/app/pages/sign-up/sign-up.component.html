@@ -1,1 +1,23 @@
-<p>sign-up works!</p>
+<div class="header">
+    <p class="title">Reservations App</p>
+</div>
+<div class="sign-up">
+    <p class="row">Username:</p>
+    <input class="row" type="text" id="username" [(ngModel)]="username">
+    <p class="row">Confirm Username:</p>
+    <input class="row" type="text" id="username" [(ngModel)]="confirm_username">
+    <p>Password:</p>
+    <input type="text" id="password" [(ngModel)]="password">
+    <p>Confirm Password:</p>
+    <input type="text" id="password" [(ngModel)]="confirm_password">
+</div>
+<div class="customer-type">
+    <p>I am a...</p>
+    <input type = "radio" name = "userType" value = "Customer" >Customer
+    <input type = "radio" name = "userType" value = "Restaurant">Restaurant
+</div>
+<br>
+<button (click)="attemptSignUp()">Sign Up</button>
+<br>
+<br>
+<button routerLink = "">Cancel</button>

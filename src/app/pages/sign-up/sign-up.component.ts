@@ -7,4 +7,44 @@ import { Component } from '@angular/core';
 })
 export class SignUpComponent {
 
+  /**
+   * Member Variables
+   */
+
+  username : string = "";
+  confirm_username : string = "";
+  password : string = "";
+  confirm_password : string = "";
+  private userType : string = "";
+
+
+
+  /**
+   * Constructor
+   */
+
+  constructor() { }
+
+
+
+  /**
+   * Class Methods
+   */
+
+  ngOnInit() : void { }
+
+  customerRadioButtonClicked() : void {
+    this.userType = "Customer";
+  }
+
+  restaurantRadioButtonClicked() : void {
+    this.userType = "Restaurant";
+  }
+
+  attemptSignUp() : void {
+
+    
+
+  }
+
 }
