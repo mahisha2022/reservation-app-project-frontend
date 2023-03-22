@@ -4,33 +4,38 @@ import { AdminRestaurantDetailsComponent } from './pages/admin-restaurant-detail
 import { CurrentReservationsComponent } from './pages/current-reservations/current-reservations.component';
 import { ListOfRestaurantsComponent } from './pages/list-of-restaurants/list-of-restaurants.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { RestaurantDetailsComponent } from './pages/restaurant-details/restaurant-details.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
-    path: 'List of Restaurants', 
+    path: 'listOfRestaurants', 
     component: ListOfRestaurantsComponent
   },
   {
-    path: 'Login',
+    path: '**',
     component: LoginComponent
   },
   {
-    path: 'Current Reservations',
+    path: 'currentReservations',
     component: CurrentReservationsComponent
   },
   {
-    path: 'Restaurant Details',
+    path: 'restaurantDetails',
     component: RestaurantDetailsComponent
   },
   {
-    path: 'Admin Details',
+    path: 'adminDetails',
     component: AdminRestaurantDetailsComponent
   },
   {
-    path: 'Sign Up',
+    path: 'signUp',
     component: SignUpComponent
+  },
+  {
+    path: 'myReservations',
+    component: MyReservationsComponent
   }
 ];
 

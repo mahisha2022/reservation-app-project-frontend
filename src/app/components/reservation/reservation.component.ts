@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Reservation } from 'src/app/models/Reservation';
 
 @Component({
   selector: 'app-reservation',
@@ -6,5 +7,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent {
+
+  /**
+   * Member Variables
+   */
+
+  reservation : Reservation = {
+    reservationId : 0, 
+    userId : 0, 
+    restaurantId : 0
+  };
+
+
+
+  /**
+   * Constructor
+   */
+
+  constructor() { }
+
+
+
+  /**
+   * Class Methods
+   */
 
 }

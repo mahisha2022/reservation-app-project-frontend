@@ -17,6 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CurrentReservationsComponent } from './pages/current-reservations/current-reservations.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReservationComponent,
     LoginComponent,
     CurrentReservationsComponent,
-    SignUpComponent
+    SignUpComponent,
+    MyReservationsComponent
   ],
   imports: [
     BrowserModule,
