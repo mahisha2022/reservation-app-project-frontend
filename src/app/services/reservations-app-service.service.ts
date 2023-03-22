@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Reservation } from '../models/Reservation';
+import { Restaurant } from '../models/Restaurant';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,7 @@ export class ReservationsAppServiceService {
    * Member Variables
    */
 
-  private favoriteRestaurants : Reservation[] = [];
+  private favoriteRestaurants : Restaurant[] = [];
 
 
 
@@ -29,22 +32,22 @@ export class ReservationsAppServiceService {
    */
 
   // Gets Reservations from Spring backend
-  getReservationsAPI() : Observable<Reservations[]> {
-    this.http.get<Reservation>("localhost:9000/reservations");
+  getReservationsAPI() : Observable<Reservation[]> {
+    return this.http.get<Reservation[]>("localhost:9000/reservations");
   }
 
   // Posts Reservations to Spring backend
-  postReservationAPI(Reservation reservation) : Observable<Reservation> {
-    this.http.post<Reservation>("localhost:9000/reservations");
+  postReservationAPI(reservation : Reservation) : Observable<Reservation> {
+    return this.http.post<Reservation>("localhost:9000/reservations", reservation);
   }
 
   // Adds restaurant to favorites list
-  addToFavoriteRestaurants(Restaurant restaurant) : void {
+  addToFavoriteRestaurants(restaurant : Restaurant) : void {
     this.favoriteRestaurants.push(restaurant);
   }
 
   // Gets list of favorited restaurants
-  getFavoriteRestaurants() : Restaurants[] {
+  getFavoriteRestaurants() : Restaurant[] {
     return this.favoriteRestaurants;
   }
 
