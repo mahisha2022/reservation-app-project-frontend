@@ -5,6 +5,7 @@ import { CurrentReservationsComponent } from './pages/current-reservations/curre
 import { ListOfRestaurantsComponent } from './pages/list-of-restaurants/list-of-restaurants.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RestaurantDetailsComponent } from './pages/restaurant-details/restaurant-details.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'Admin Details',
     component: AdminRestaurantDetailsComponent
+  },
+  {
+    path: 'Sign Up',
+    component: SignUpComponent
   }
 ];
 
