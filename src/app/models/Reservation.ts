@@ -1,5 +1,6 @@
 export interface Reservation {
     reservationId : number,
     userId : number,
-    restaurantId : number
+    restaurantId : number,
+    time : string
 }

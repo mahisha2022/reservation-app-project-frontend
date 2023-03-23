@@ -19,6 +19,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { FormsModule } from '@angular/forms';
+import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     CurrentReservationsComponent,
     SignUpComponent,
-    MyReservationsComponent
+    MyReservationsComponent,
+    ReservationListComponent
   ],
   imports: [
     BrowserModule,
