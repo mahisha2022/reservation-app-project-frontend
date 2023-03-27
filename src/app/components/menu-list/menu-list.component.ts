@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MenuItem } from 'src/app/models/MenuItem';
 
 @Component({
   selector: 'app-menu-list',
@@ -6,5 +7,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-list.component.css']
 })
 export class MenuListComponent {
+
+  /**
+   * Member Variables
+   */
+
+  @Input()
+  menuItems : MenuItem[] = [];
+
+
+
+  /**
+   * Constructor
+   */
+
+  constructor() { }
+
+
+
+  /**
+   * Class Methods
+   */
 
 }

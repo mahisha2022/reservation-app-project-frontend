@@ -11,6 +11,8 @@ import { RestaurantNavbarComponent } from './components/restaurant-navbar/restau
 import { ReservationInputComponent } from './components/reservation-input/reservation-input.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
+import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { MenuItemInputComponent } from './components/menu-item-input/menu-item-input.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -38,7 +40,9 @@ import { ReservationListComponent } from './components/reservation-list/reservat
     CurrentReservationsComponent,
     SignUpComponent,
     MyReservationsComponent,
-    ReservationListComponent
+    ReservationListComponent,
+    MenuItemComponent,
+    MenuItemInputComponent
   ],
   imports: [
     BrowserModule,
