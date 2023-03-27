@@ -53,6 +53,10 @@ export class AdminRestaurantDetailsComponent {
    * Class Methods
    */
 
+  addItem(item : MenuItem) {
+    this.menuItems.push(item);
+  }
+
   deleteItem(item : MenuItem) {
     let index = -1;
     for (let i = 0; i < this.menuItems.length; i++) {
