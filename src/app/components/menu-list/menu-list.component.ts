@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MenuItem } from 'src/app/models/MenuItem';
 
 @Component({
@@ -14,6 +14,8 @@ export class MenuListComponent {
 
   @Input()
   menuItems : MenuItem[] = [];
+  @Output()
+  deletingItem = new EventEmitter<MenuItem>();
 
 
 
@@ -28,5 +30,9 @@ export class MenuListComponent {
   /**
    * Class Methods
    */
+
+  deleteItemEvent(item : MenuItem) {
+    this.deletingItem.emit(item);
+  }
 
 }

@@ -53,4 +53,17 @@ export class AdminRestaurantDetailsComponent {
    * Class Methods
    */
 
+  deleteItem(item : MenuItem) {
+    let index = -1;
+    for (let i = 0; i < this.menuItems.length; i++) {
+      if (this.menuItems[i] === item) {
+        index = i;
+        break;
+      }
+    }
+    if (index != -1) {
+      this.menuItems.splice(index, 1);
+    }
+  }
+
 }
