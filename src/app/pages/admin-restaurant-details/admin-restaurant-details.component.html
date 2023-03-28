@@ -1,5 +1,7 @@
 <app-restaurant-navbar></app-restaurant-navbar>
 <br>
+<app-restaurantform [formTitle]="formTitle"></app-restaurantform>
+<br>
 <app-menu-item-input (addItemEvent)="addItem($event)"></app-menu-item-input>
 <br>
 <app-menu-list [menuItems] = "menuItems" (deletingItem)="deleteItem($event)"></app-menu-list>

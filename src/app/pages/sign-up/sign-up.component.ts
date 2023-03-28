@@ -11,10 +11,6 @@ export class SignUpComponent {
    * Member Variables
    */
 
-  username : string = "";
-  confirm_username : string = "";
-  password : string = "";
-  confirm_password : string = "";
   userType : string = "";
 
 
@@ -42,8 +38,6 @@ export class SignUpComponent {
   }
 
   attemptSignUp() : void {
-
-    
 
   }
 
