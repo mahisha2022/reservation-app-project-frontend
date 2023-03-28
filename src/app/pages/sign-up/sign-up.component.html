@@ -13,8 +13,15 @@
 </div>
 <div class="customer-type">
     <p>I am a...</p>
-    <input type = "radio" name = "userType" value = "Customer" >Customer
-    <input type = "radio" name = "userType" value = "Restaurant">Restaurant
+    <input type = "radio" name = "userType" value = "Customer" (click)="customerRadioButtonClicked()">Customer
+    <input type = "radio" name = "userType" value = "Restaurant" (click)="restaurantRadioButtonClicked()">Restaurant
+</div>
+<br>
+<div *ngIf="userType == 'Customer'">
+    <p>customer test</p>
+</div>
+<div *ngIf="userType == 'Restaurant'">
+    <app-restaurantform></app-restaurantform>
 </div>
 <br>
 <button (click)="attemptSignUp()">Sign Up</button>

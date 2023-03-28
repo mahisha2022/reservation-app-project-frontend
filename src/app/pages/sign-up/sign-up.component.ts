@@ -15,7 +15,7 @@ export class SignUpComponent {
   confirm_username : string = "";
   password : string = "";
   confirm_password : string = "";
-  private userType : string = "";
+  userType : string = "";
 
 
 
