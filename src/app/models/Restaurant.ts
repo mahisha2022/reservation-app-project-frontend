@@ -1,6 +1,10 @@
 import { User } from "./User";
+import { Reservation } from "./Reservation";
 
 export interface Restaurant extends User {
-    restaurantId : number,
-    restaurantName : string
+  name : string,
+  address: string,
+  phone?: string,
+  totalSeats?: number,
+  reservations : Reservation[]
 }

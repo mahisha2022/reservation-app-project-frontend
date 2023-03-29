@@ -18,7 +18,7 @@ import { CurrentReservationsComponent } from './pages/current-reservations/curre
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

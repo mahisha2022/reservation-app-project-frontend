@@ -12,3 +12,40 @@
 .customer-type {
     margin: auto;
 }
+
+button {
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+input {
+  border-radius: 3px;
+  margin: 10px;
+  padding: 5px 10px;
+}
+
+input.ng-invalid {
+  border: 2px solid red;
+}
+
+div.invalid-input {
+  color: red;
+  font-size: 12px;
+}
+
+form {
+  text-align: center;
+  background: #F4F4F4;
+  border-radius: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.restaurant_fields {
+  background: white;
+  border: 1px dotted;
+  padding: 20px;
+  margin: 10px;
+}

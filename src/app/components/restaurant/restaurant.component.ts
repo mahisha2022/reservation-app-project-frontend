@@ -14,11 +14,14 @@ export class RestaurantComponent {
 
   @Input()
   restaurant : Restaurant = {
-    restaurantId : 0, 
-    restaurantName : "", 
     userId : 0, 
-    userName : "", 
-    password : ""
+    username : "", 
+    passwd : "",
+    name : "", 
+    address : "",
+    phone : "",
+    totalSeats : 0,
+    reservations : []
   };
 
 
