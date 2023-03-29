@@ -1,25 +1,29 @@
 <div class="container">
     <div class="left-column">
         <p>restaurant registration form</p>
-        <label for="">name: </label>
-        <input [(ngModel)]="name">
+        <label for="">user name: </label>
+        <input [(ngModel)]="username" placeholder="username">
+        <label for="">password: </label>
+        <input [(ngModel)]="password" placeholder="password">
+        <label for="">Restaurant Name: </label>
+        <input [(ngModel)]="name" placeholder="restaurant name">
         <br>
         <label for="">address: </label>
-        <input [(ngModel)]="address">
+        <input [(ngModel)]="address" placeholder="restaurant address">
         <br>
         <label> phone: </label>
-        <input [(ngModel)]="phone">
+        <input [(ngModel)]="phone" placeholder="phone number">
         <br>
         <label>openAt: </label>
-        <input [(ngModel)]="openAt">
+        <input [(ngModel)]="openAt" placeholder="open at">
         <br>
         <label> close At</label>
-        <input [(ngModel)]="closeAt">
+        <input [(ngModel)]="closeAt" placeholder="close at">
         <br>
         <label for="">Seats</label>
-        <input [(ngModel)]="totalSeats">
+        <input [(ngModel)]="totalSeats" placeholder="total number of seats">
         <br>
-        <button (click)="submit()">submit</button>
+        <button routerLink="/restaurantPage" (click)="submit()">submit</button>
     </div>
 <div class="right-column">
 
