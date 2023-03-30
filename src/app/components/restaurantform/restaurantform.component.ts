@@ -14,6 +14,8 @@ export class RestaurantformComponent implements OnInit{
    */
 
   restaurants: Restaurant[] = [];
+  username: string = "";
+  password: string = "";
   name: string = "";
   address: string = "";
   phone: string = "";
@@ -54,6 +56,7 @@ export class RestaurantformComponent implements OnInit{
 
   submit(): void{
     let restaurant: Restaurant = {
+      userName: this.username, password: this.password,
       restaurantName: this.name, address: this.address, phone: this.phone, 
       openAt: this.openAt, closeAt: this.closeAt, totalSeats: this.totalSeats
     };

@@ -1,1 +1,10 @@
-<p>reservation-input works!</p>
+<label>Reservation Date: </label>
+<input [(ngModel)]="reservationDate" placeholder="reservation date">
+<br>
+<label> Number of Guests: </label>
+<input [(ngModel)]="guestNum" placeholder="number of Guests">
+<br>
+<label> Special Accomodation: </label>
+<input [(ngModel)]="specialAccomodation" placeholder="special Accomodation">
+<br>
+<button (click)="submit"> Submt</button>
