@@ -46,6 +46,8 @@ export class SignUpComponent implements OnInit {
     private restaurantService: RestaurantService,
     private fb: FormBuilder) { }
 
+    
+
   /**
    * Class Methods
    */

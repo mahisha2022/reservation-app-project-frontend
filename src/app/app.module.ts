@@ -22,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
-import { RestaurantformComponent } from './components/restaurantform/restaurantform.component';
 import { CustomerformComponent } from './components/customerform/customerform.component';
 
 @NgModule({
@@ -45,7 +44,6 @@ import { CustomerformComponent } from './components/customerform/customerform.co
     ReservationListComponent,
     MenuItemComponent,
     MenuItemInputComponent,
-    RestaurantformComponent,
     CustomerformComponent
   ],
   imports: [
