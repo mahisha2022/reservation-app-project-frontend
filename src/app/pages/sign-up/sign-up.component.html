@@ -27,6 +27,11 @@
     <input type="radio" name="user_type" value="Restaurant" formControlName="user_type">Restaurant
   </div>
 
+  <div> 
+    <button type="submit" [disabled]="form.invalid" *ngIf="form.value.user_type == 'Customer'"  >
+      Sign-up</button>
+  </div>
+
   <div *ngIf="form.value.user_type == 'Restaurant'" class="restaurant_fields">
     <div>
       <label>Restaurant Name</label><br>
@@ -48,5 +53,6 @@
     <input type="text" formControlName="phone">
   </div>
   
-  <button type="submit" [disabled]="form.invalid" *ngIf="form.value.user_type == 'Restaurant'" routerLink="/adminDetails">Sign-up</button>
+  <button type="submit" [disabled]="form.invalid" *ngIf="form.value.user_type == 'Restaurant'" routerLink="/adminDetails" >
+    Sign-up</button>
 </form>
