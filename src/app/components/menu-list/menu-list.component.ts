@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MenuItem } from 'src/app/models/MenuItem';
 
 @Component({
   selector: 'app-menu-list',
@@ -6,5 +7,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-list.component.css']
 })
 export class MenuListComponent {
+
+  /**
+   * Member Variables
+   */
+
+  @Input()
+  menuItems : MenuItem[] = [];
+  @Output()
+  deletingItem = new EventEmitter<MenuItem>();
+
+
+
+  /**
+   * Constructor
+   */
+
+  constructor() { }
+
+
+
+  /**
+   * Class Methods
+   */
+
+  deleteItemEvent(item : MenuItem) {
+    this.deletingItem.emit(item);
+  }
 
 }

@@ -11,6 +11,8 @@ import { RestaurantNavbarComponent } from './components/restaurant-navbar/restau
 import { ReservationInputComponent } from './components/reservation-input/reservation-input.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
+import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { MenuItemInputComponent } from './components/menu-item-input/menu-item-input.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -19,6 +21,9 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
+import { RestaurantformComponent } from './components/restaurantform/restaurantform.component';
+import { CustomerformComponent } from './components/customerform/customerform.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     CurrentReservationsComponent,
     SignUpComponent,
-    MyReservationsComponent
+    MyReservationsComponent,
+    ReservationListComponent,
+    MenuItemComponent,
+    MenuItemInputComponent,
+    RestaurantformComponent,
+    CustomerformComponent
   ],
   imports: [
     BrowserModule,

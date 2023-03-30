@@ -1,1 +1,5 @@
-<p>restaurant-details works!</p>
+<app-customer-navbar></app-customer-navbar>
+<br>
+<p>{{selectedRestaurant.restaurantName}}</p>
+<br>
+<app-reservation-list [reservations]="availableReservations"></app-reservation-list>

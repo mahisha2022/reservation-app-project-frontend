@@ -14,14 +14,16 @@ export class RestaurantComponent {
 
   @Input()
   restaurant : Restaurant = {
-    userId : 0, 
-    username : "", 
-    passwd : "",
-    name : "", 
-    address : "",
-    phone : "",
-    totalSeats : 0,
-    reservations : []
+    userId : 1,
+    username : "test username",
+    passwd : "test password",
+    name : "Test Restaurant",
+    address: "test address",
+    phone: "989-111-1111",
+    openAt: "11:00AM",
+    closeAt: "10:00PM",
+    totalSeats: 100,
+    reservations : [],
   };
 
 

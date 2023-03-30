@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Reservation } from 'src/app/models/Reservation';
 
 @Component({
@@ -12,6 +12,7 @@ export class ReservationListComponent {
    * Member Variables
    */
 
+  @Input()
   reservations : Reservation[] = [];
 
 
