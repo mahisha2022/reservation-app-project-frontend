@@ -12,19 +12,27 @@ export class ReservationsAppServiceService {
 
    constructor(private http : HttpClient) { }
   
+  
   postReservation(reservation: Reservation): Observable<Reservation>{
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.post<Reservation>("http://127.0.0.1:9000/reservation", reservation, {headers: header});
+    return this.http.post<Reservation>("http://127.0.0.1:9000/reserve?customer=1&venue=1", reservation, {headers: header});
 
   }
 
-  getReseravtiont(): Observable<Reservation[]>{
+  getCustomerReseravtiont(): Observable<Reservation[]>{
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.get<Reservation[]>("http://127.0.0.1/restaurants", {headers: header});
+    return this.http.get<Reservation[]>("http://127.0.0.1/reservations?customer", {headers: header});
+  }
+
+  getRestaurantReseravtiont(): Observable<Reservation[]>{
+    let header : HttpHeaders = new HttpHeaders();
+    header.append("accept", "text/json");
+    header.append("Access-Control-Allow-Origin", "*");
+    return this.http.get<Reservation[]>("http://127.0.0.1/reservations?restaurant", {headers: header});
   }
 }
 
