@@ -1,12 +1,18 @@
 <div class="container">
     <div class="left-column">
-        <p>restaurant registration form</p>
-        <label for="">user name: </label>
-        <input [(ngModel)]="username" placeholder="username">
-        <label for="">password: </label>
-        <input [(ngModel)]="password" placeholder="password">
-        <label for="">Restaurant Name: </label>
-        <input [(ngModel)]="name" placeholder="restaurant name">
+        <p>{{formTitle}}</p>
+        <br>
+        <p class="row">Username:</p>
+        <input class="row" type="text" id="username" [(ngModel)]="username">
+        <p class="row">Confirm Username:</p>
+        <input class="row" type="text" id="username" [(ngModel)]="confirm_username">
+        <p>Password:</p>
+        <input type="text" id="password" [(ngModel)]="password">
+        <p>Confirm Password:</p>
+        <input type="text" id="password" [(ngModel)]="confirm_password">
+        <br>
+        <label for="">name: </label>
+        <input [(ngModel)]="name">
         <br>
         <label for="">address: </label>
         <input [(ngModel)]="address" placeholder="restaurant address">

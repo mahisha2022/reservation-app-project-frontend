@@ -23,6 +23,7 @@ import { MyReservationsComponent } from './pages/my-reservations/my-reservations
 import { FormsModule } from '@angular/forms';
 import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
 import { RestaurantformComponent } from './components/restaurantform/restaurantform.component';
+import { CustomerformComponent } from './components/customerform/customerform.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { RestaurantformComponent } from './components/restaurantform/restaurantf
     ReservationListComponent,
     MenuItemComponent,
     MenuItemInputComponent,
-    RestaurantformComponent
+    RestaurantformComponent,
+    CustomerformComponent
   ],
   imports: [
     BrowserModule,

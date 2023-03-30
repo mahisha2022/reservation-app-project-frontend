@@ -12,6 +12,7 @@ export class AdminRestaurantDetailsComponent {
    * Member Variables
    */
 
+  formTitle : string = "Current Details";
   menuItems : MenuItem[] = [
     {
       itemName : "Item Name 1",

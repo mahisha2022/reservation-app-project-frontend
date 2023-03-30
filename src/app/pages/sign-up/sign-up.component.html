@@ -1,16 +1,6 @@
 <div class="header">
     <p class="title">Reservations App</p>
 </div>
-<div class="sign-up">
-    <p class="row">Username:</p>
-    <input class="row" type="text" id="username" [(ngModel)]="username">
-    <p class="row">Confirm Username:</p>
-    <input class="row" type="text" id="username" [(ngModel)]="confirm_username">
-    <p>Password:</p>
-    <input type="text" id="password" [(ngModel)]="password">
-    <p>Confirm Password:</p>
-    <input type="text" id="password" [(ngModel)]="confirm_password">
-</div>
 <div class="customer-type">
     <p>I am a...</p>
     <input type = "radio" name = "userType" value = "Customer" (click)="customerRadioButtonClicked()">Customer
@@ -18,7 +8,7 @@
 </div>
 <br>
 <div *ngIf="userType == 'Customer'">
-    <p>customer test</p>
+    <app-customerform></app-customerform>
 </div>
 <div *ngIf="userType == 'Restaurant'">
     <app-restaurantform></app-restaurantform>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Restaurant } from 'src/app/models/Restaurant';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 
@@ -8,6 +8,11 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
   styleUrls: ['./restaurantform.component.css']
 })
 export class RestaurantformComponent implements OnInit{
+
+  /**
+   * Member Variables
+   */
+
   restaurants: Restaurant[] = [];
   username: string = "";
   password: string = "";
@@ -17,8 +22,27 @@ export class RestaurantformComponent implements OnInit{
   openAt: string = "";
   closeAt: string = "";
   totalSeats: number = 0;
+  username : string = "";
+  confirm_username : string = "";
+  password : string = "";
+  confirm_password : string = "";
+  @Input()
+  formTitle: string = "restaurant registration form";
 
-  constructor(private restaurantService: RestaurantService){}
+
+
+  /**
+   * Constructor
+   */
+
+  constructor(private restaurantService: RestaurantService) { }
+
+
+
+  /**
+   * Class Methods
+   */
+
   ngOnInit() {
     this.getRestaurants();
   }
