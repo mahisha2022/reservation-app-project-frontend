@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Reservation } from 'src/app/models/Reservation';
+import { ReservationsAppServiceService } from 'src/app/services/reservations.service';
 
 @Component({
   selector: 'app-reservation-list',
@@ -8,27 +9,22 @@ import { Reservation } from 'src/app/models/Reservation';
 })
 export class ReservationListComponent {
 
-  /**
-   * Member Variables
-   */
-
   @Input()
   reservations : Reservation[] = [];
 
 
 
-  /**
-   * Constructor
-   */
-
-  constructor() { }
+  constructor(private reservationService: ReservationsAppServiceService) { }
 
 
+  ngOnInit() : void { this.reservationListForACustomer();}
 
-  /**
-   * Class Methods
-   */
 
-  ngOnInit() : void { }
+
+ reservationListForARestaurant(){this.reservationService.getRestaurantReseravtiont().subscribe()}
+
+ reservationListForACustomer(){this.reservationService.getCustomerReseravtiont().subscribe()}
+
+
 
 }
