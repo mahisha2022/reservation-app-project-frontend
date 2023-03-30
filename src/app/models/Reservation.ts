@@ -4,9 +4,10 @@ export interface Reservation {
     // restaurantId : number,
     // time : string
 
-    reservationId : number,
+    // reservationId : number,
     userId : number,
     restaurantId : number,
+    guestNum: number
     reservationDate: string,
     specialAccomodation: string,
 }

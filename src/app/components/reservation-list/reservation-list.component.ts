@@ -25,6 +25,7 @@ export class ReservationListComponent {
 
  reservationListForACustomer(){this.reservationService.getCustomerReseravtiont().subscribe()}
 
+ 
 
 
 }

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Reservation } from 'src/app/models/Reservation';
+import { ReservationsAppServiceService } from 'src/app/services/reservations.service';
 
 @Component({
   selector: 'app-reservation-input',
@@ -11,38 +13,38 @@ export class ReservationInputComponent implements OnInit{
   /**
    * Member Variables
    */
+  form = this.fb.group({
+   
 
-  @Output()
-  reservationMadeEvent = new EventEmitter<Reservation>();
-  reservationDate:string = "";
-  guestNum:number = 0;
-  specialAccomodation: string = "";
+    reservationDate: '',
+    guestNum: 0,
+    specialAccomodation: '',
+  });
 
-
-
-  /**
-   * Constructor
-   */
-
-  constructor() { }
-
-
-
-  /**
-   * Class Methods
-   */
-
-  ngOnInit(): void {}
-    
-  submit(): void{
-    let reservation: Reservation = {
-      reservationDate: this.reservationDate, 
-      specialAccomodation: this.specialAccomodation, 
-      userId: -1, 
-      restaurantId: -1,
-      reservationId: -1
-    };
-    this.reservationMadeEvent.emit(reservation);
+  constructor(private reservationService: ReservationsAppServiceService, 
+        private fb: FormBuilder){}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
+
+
+    submitReservation(): void{
+      const data = this.form.value;
+        let reservation : Reservation = {
+          "reservationDate": data.reservationDate!, "guestNum": data.guestNum!,
+          "specialAccomodation": data.specialAccomodation!,
+
+          //need help here 
+          userId: 0,
+          restaurantId: 0
+        }
+        this.reservationService.postReservation(reservation).subscribe();
+    }
+
+
+
+ 
+    
+
 
 }
