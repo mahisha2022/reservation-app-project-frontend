@@ -17,7 +17,8 @@ export class ReservationComponent {
     reservationId : 0, 
     userId : 0, 
     restaurantId : 0,
-    time : "0:00"
+    reservationDate: "05/29/2020",
+    specialAccomodation: "None"
   };
 
 

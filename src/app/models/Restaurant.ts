@@ -8,6 +8,5 @@ export interface Restaurant extends User {
   totalSeats?: number,
   openAt?: string,
   closeAt?: string,
-  totalSeats?: number,
   reservations : Reservation[]
 }

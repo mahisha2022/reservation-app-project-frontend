@@ -19,9 +19,10 @@ export class ListOfRestaurantsComponent {
       openAt: "11:00AM",
       closeAt: "10:00PM",
       totalSeats: 100,
-      userName : "test username",
-      password : "test password",
-      restaurantName : "Test Restaurant"
+      username : "test username",
+      passwd : "test password",
+      name : "Test Restaurant",
+      reservations: []
     },
     {
       address: "test address",
@@ -29,9 +30,10 @@ export class ListOfRestaurantsComponent {
       openAt: "11:00AM",
       closeAt: "10:00PM",
       totalSeats: 100,
-      userName : "test username",
-      password : "test password",
-      restaurantName : "Test Restaurant 2"
+      username : "test username",
+      passwd : "test password",
+      name : "Test Restaurant 2",
+      reservations: []
     },
     {
       address: "test address",
@@ -39,9 +41,10 @@ export class ListOfRestaurantsComponent {
       openAt: "11:00AM",
       closeAt: "10:00PM",
       totalSeats: 100,
-      userName : "test username",
-      password : "test password",
-      restaurantName : "Test Restaurant 3"
+      username : "test username",
+      passwd : "test password",
+      name : "Test Restaurant 3",
+      reservations: []
     }
   ];
 

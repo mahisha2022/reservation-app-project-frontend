@@ -12,32 +12,7 @@ export class MyReservationsComponent {
    * Member Variables
    */
 
-  reservations : Reservation[] = [
-    {
-      reservationId : 0,
-      userId : 0,
-      restaurantId : 0,
-      time : "5:00 PM"
-    },
-    {
-      reservationId : 0,
-      userId : 0,
-      restaurantId : 0,
-      time : "5:30 PM"
-    },
-    {
-      reservationId : 0,
-      userId : 0,
-      restaurantId : 0,
-      time : "6:00 PM"
-    },
-    {
-      reservationId : 0,
-      userId : 0,
-      restaurantId : 0,
-      time : "6:30 PM"
-    }
-];
+  reservations : Reservation[] = [ ];
 
 
 
