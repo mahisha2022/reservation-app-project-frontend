@@ -27,7 +27,7 @@
     <input type="radio" name="user_type" value="Restaurant" formControlName="user_type">Restaurant
   </div>
 
-  <div> 
+  <div id="customer-signup"> 
     <button type="submit" [disabled]="form.invalid" *ngIf="form.value.user_type == 'Customer'"  >
       Sign-up</button>
   </div>
