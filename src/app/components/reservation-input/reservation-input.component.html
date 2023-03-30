@@ -1,7 +1,16 @@
-<label>Reservation Date: </label>
-<input [(ngModel)]="reservationDate" placeholder="reservation date">
-<br>
-<label> Special Accomodation: </label>
-<input [(ngModel)]="specialAccomodation" placeholder="special Accomodation">
-<br>
-<button (click)="submit"> Submt</button>
+<form [formGroup]="form" (ngSubmit)="submitReservation()">
+    <label>Reservation Date: </label>
+    <input formControlName="reservationDate" placeholder="reservation date">
+    <br>
+    <label> Number of Guests:</label>
+    <input formControlName="guestNum">
+    <br>
+    <label> Special Accomodation: </label>
+    <input formArrayName="specialAccomodation" placeholder="special Accomodation">
+    <br>
+    <button type="submit" > Submt</button>
+</form>
+
+
+  
+  
