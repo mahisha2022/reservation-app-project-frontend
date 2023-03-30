@@ -38,6 +38,4 @@ export class RestaurantService {
     header.append("Access-Control-Allow-Origin", "*");
     return this.http.delete<Restaurant>(`http://127.0.0.1/restaurant/${id}`,  {headers: header});
   }
-
-
 }

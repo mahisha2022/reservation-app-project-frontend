@@ -1,20 +1,52 @@
 <div class="header">
     <p class="title">Reservations App</p>
 </div>
-<div class="customer-type">
-    <p>I am a...</p>
-    <input type = "radio" name = "userType" value = "Customer" (click)="customerRadioButtonClicked()">Customer
-    <input type = "radio" name = "userType" value = "Restaurant" (click)="restaurantRadioButtonClicked()">Restaurant
-</div>
-<br>
-<div *ngIf="userType == 'Customer'">
-    <app-customerform></app-customerform>
-</div>
-<div *ngIf="userType == 'Restaurant'">
-    <app-restaurantform></app-restaurantform>
-</div>
-<br>
-<button (click)="attemptSignUp()">Sign Up</button>
-<br>
-<br>
-<button routerLink = "">Cancel</button>
+
+<form [formGroup]="form" (ngSubmit)="attemptRegister()">
+  <label>Username</label><br>
+  <input type="username" formControlName="username"><br>
+  <div *ngIf="form.controls['username'].invalid" class="invalid-input">
+    Username required
+  </div>
+
+  <label>Password</label><br>
+  <input type="text" formControlName="password"><br>
+  <div *ngIf="form.controls['password'].invalid" class="invalid-input">
+    Password must be at least 4 characters long
+  </div>
+
+  <label>Confirm password</label><br>
+  <input type="text" formControlName="confirm_pass"><br>
+  <div *ngIf="form.controls['confirm_pass'].invalid" class="invalid-input">
+    Passwords must match
+  </div>
+
+  <div class="radio_form">
+    <p>I am a ...</p>
+    <input type="radio" name="user_type" value="Customer" formControlName="user_type">Customer
+    <input type="radio" name="user_type" value="Restaurant" formControlName="user_type">Restaurant
+  </div>
+
+  <div *ngIf="form.value.user_type == 'Restaurant'" class="restaurant_fields">
+    <div>
+      <label>Restaurant Name</label><br>
+      <input type="text" formControlName="restaurant_name">
+      <div *ngIf="form.controls['restaurant_name'].invalid" class="invalid-input">
+        Restqurants require names
+      </div>
+    </div>
+
+    <div>
+      <label>Restaurant Address</label><br>
+      <input type="text" formControlName="address">
+      <div *ngIf="form.controls['address'].invalid" class="invalid-input">
+        Restqurants require addresses
+      </div>
+    </div>
+
+    <label>Restaurant Telephone</label><br>
+    <input type="text" formControlName="phone">
+  </div>
+  
+  <button type="submit" [disabled]="form.invalid">Sign-up</button>
+</form>

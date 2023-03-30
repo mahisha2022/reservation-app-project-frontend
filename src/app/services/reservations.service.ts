@@ -50,6 +50,7 @@ export class ReservationsAppServiceService {
    * Class Methods
    */
 
+  /*
   // // Gets Reservations from Spring backend
   // getReservationsAPI() : Observable<Reservation[]> {
   //   return this.http.get<Reservation[]>("localhost:9000/reservations");
@@ -69,5 +70,5 @@ export class ReservationsAppServiceService {
   // getFavoriteRestaurants() : Restaurant[] {
   //   return this.favoriteRestaurants;
   // }
-
 }
+*/

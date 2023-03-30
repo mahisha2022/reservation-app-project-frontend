@@ -1,9 +1,6 @@
-import { Reservation } from "./Reservation";
-import { Restaurant } from "./Restaurant";
 import { User } from "./User";
+import { Reservation } from "./Reservation";
 
 export interface Customer extends User {
-    customerId : number,
-    favorites : Restaurant[],
-    reservations : Reservation[]
+  reservations : Reservation[]
 }
