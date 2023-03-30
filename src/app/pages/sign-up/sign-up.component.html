@@ -48,5 +48,5 @@
     <input type="text" formControlName="phone">
   </div>
   
-  <button type="submit" [disabled]="form.invalid">Sign-up</button>
+  <button type="submit" [disabled]="form.invalid" *ngIf="form.value.user_type == 'Restaurant'" routerLink="/adminDetails">Sign-up</button>
 </form>
