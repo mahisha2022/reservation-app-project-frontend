@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormsModule, Validators, FormBuilder } from '@angular/forms';
 import { Customer } from '../../models/Customer';
 import { Restaurant } from '../../models/Restaurant';
@@ -45,6 +45,9 @@ export class SignUpComponent implements OnInit {
    * Constructor
    */
 
+  @ViewChild('inputValue', { static: true })
+  inputValue!: { nativeElement: { value: string;}; };
+
   constructor(private customerService: CustomerService,
     private restaurantService: RestaurantService,
     private fb: FormBuilder) { }
@@ -69,7 +72,7 @@ export class SignUpComponent implements OnInit {
         "name": data.restaurant_name!, "address": data.address!, "phone": data.phone!};
         ///add emitter to listen to newly added restaurant
       this.restaurantService.postRestaurant(user).subscribe(json => this.onRestaurantAdded.emit());
-
+      this.restaurantService.inputValue = this.inputValue.nativeElement.value;
     }
     console.log(user);
   }
