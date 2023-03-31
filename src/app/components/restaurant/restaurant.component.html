@@ -1,4 +1,10 @@
-<p>{{restaurant.name}}</p>
-<p>{{restaurant.address}}</p>
-<p>{{restaurant.phone}}</p>
-<button routerLink="/restaurantDetails" data="restaurant">details</button>
+
+<div >
+<p>Restaurant Name: {{restaurant.name}}</p>
+<p>Address: {{restaurant.address}}</p>
+<p>Phone: {{restaurant.phone}}</p>
+<button *ngIf="isAdminPage()" data="restaurant">details</button>
+<button *ngIf="!isAdminPage()"> Reserve</button>
+</div>
+
+

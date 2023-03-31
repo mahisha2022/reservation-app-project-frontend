@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Restaurant } from 'src/app/models/Restaurant';
 
 @Component({
@@ -43,8 +44,13 @@ export class RestaurantComponent implements OnInit{
    * Constructor
    */
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
   ngOnInit(): void {}
+
+  isAdminPage(){
+    return this.route.snapshot.routeConfig?.path === 'adminDetails';
+  }
+ 
 
 
 
