@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MenuItem } from 'src/app/models/MenuItem';
+import { Restaurant } from 'src/app/models/Restaurant';
 
 @Component({
   selector: 'app-admin-restaurant-details',
@@ -7,10 +8,14 @@ import { MenuItem } from 'src/app/models/MenuItem';
   styleUrls: ['./admin-restaurant-details.component.css']
 })
 export class AdminRestaurantDetailsComponent {
+// [x: string]: Restaurant;
 
   /**
    * Member Variables
    */
+
+
+
 
   formTitle : string = "Current Details";
   menuItems : MenuItem[] = [
@@ -48,6 +53,10 @@ export class AdminRestaurantDetailsComponent {
 
   constructor() { }
 
+  // ngOnInit(): void {
+  //   throw new Error('Method not implemented.');
+  // }
+
 
 
   /**
@@ -70,5 +79,7 @@ export class AdminRestaurantDetailsComponent {
       this.menuItems.splice(index, 1);
     }
   }
+
+
 
 }

@@ -1,5 +1,7 @@
+import { JsonPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Restaurant } from 'src/app/models/Restaurant';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -12,7 +14,7 @@ export class RestaurantListComponent {
    * Member Variables
    */
 
-  @Input()
+  // @Input()
   restaurants : Restaurant[] = [];
 
 
@@ -21,7 +23,7 @@ export class RestaurantListComponent {
    * Constructor
    */
 
-  constructor() { }
+  constructor(public restaurantService: RestaurantService) { }
 
 
 
@@ -29,6 +31,15 @@ export class RestaurantListComponent {
    * Class Methods
    */
 
-  ngOnInit() : void { }
+  ngOnInit() : void {this.getAddedRestaurant() };
 
+  
+
+  getAddedRestaurant(){
+    this.restaurantService.getRestaurant().subscribe(json=>{this.restaurants=json})
+  }
+
+  // getAddedRestaurant(newRestaurant: Restaurant){
+  //   this.restaurants.push(newRestaurant);
+  // }
 }
