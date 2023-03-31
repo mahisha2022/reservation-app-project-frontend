@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { RestaurantDetailsComponent } from './pages/restaurant-details/restaurant-details.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,8 @@ const routes: Routes = [
   {
     path: '**',
     component: LoginComponent
-  }
+  }, 
+  {path: 'customer',  component: CustomerPageComponent}
 ];
 
 @NgModule({

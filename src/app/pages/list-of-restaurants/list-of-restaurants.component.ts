@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Restaurant } from 'src/app/models/Restaurant';
+import { CustomerService } from 'src/app/services/customer.service';
+import { RestaurantService } from 'src/app/services/user-auth';
 
 @Component({
   selector: 'app-list-of-restaurants',
@@ -54,14 +56,15 @@ export class ListOfRestaurantsComponent {
    * Constructor
    */
 
-  constructor() { }
+  constructor(private restaurantService: RestaurantService) { }
 
 
 
   /**
    * Class Methods
    */
-
+  ///Listen to the added restaurant from the signup component 
+    onRestaurantAdded(newRestaurant: Restaurant){this.restaurants.push(newRestaurant)}
 
 
 }

@@ -7,6 +7,8 @@ import { Restaurant } from '../models/Restaurant';
   providedIn: 'root'
 })
 export class RestaurantService {
+///
+  restaurant : Restaurant [] =[];
 
    constructor(private http : HttpClient) { }
   
@@ -22,7 +24,7 @@ export class RestaurantService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.get<Restaurant[]>("http://127.0.0.1/restaurants", {headers: header});
+    return this.http.get<Restaurant[]>("http://127.0.0.1:9000/restaurants", {headers: header});
   }
 
   updateRestaurant(id: number, restaurant: Restaurant): Observable<Restaurant>{

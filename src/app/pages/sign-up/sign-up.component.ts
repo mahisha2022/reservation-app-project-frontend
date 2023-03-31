@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule, Validators, FormBuilder } from '@angular/forms';
 import { Customer } from '../../models/Customer';
 import { Restaurant } from '../../models/Restaurant';
@@ -17,6 +17,9 @@ export class SignUpComponent implements OnInit {
   /**
    * Member Variables
    */
+
+  @Output()
+  onRestaurantAdded: EventEmitter<any> = new EventEmitter<any>();
 
   form = this.fb.group({
     username: ['',
@@ -64,7 +67,9 @@ export class SignUpComponent implements OnInit {
     } else {
       user = {"username": data.username!, "passwd": data.password!, "reservations": [],
         "name": data.restaurant_name!, "address": data.address!, "phone": data.phone!};
-      this.restaurantService.postRestaurant(user).subscribe();
+        ///add emitter to listen to newly added restaurant
+      this.restaurantService.postRestaurant(user).subscribe(json => this.onRestaurantAdded.emit());
+
     }
     console.log(user);
   }
