@@ -23,6 +23,7 @@ export class RestaurantComponent implements OnInit{
     openAt: "11:00AM",
     closeAt: "10:00PM",
     totalSeats: 100,
+    reservations: [],
     };
     // userId : 1,
     // username : "test username",
