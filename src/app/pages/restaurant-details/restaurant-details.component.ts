@@ -42,7 +42,7 @@ export class RestaurantDetailsComponent {
    */
 
   reservationMade(reservation: Reservation) {
-    reservation.restaurantId = this.selectedRestaurant.userId!;
+    reservation.restaurantId = this.selectedRestaurant.id!;
     this.reservationService.postReservation(reservation).subscribe();
   }
 

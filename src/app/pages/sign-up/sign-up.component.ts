@@ -18,9 +18,8 @@ export class SignUpComponent implements OnInit {
    * Member Variables
    */
 
-  @Output()
-  onRestaurantAdded: EventEmitter<any> = new EventEmitter<any>();
-
+  user: Customer | Restaurant | null = null;
+  error: string = "";
   form = this.fb.group({
     username: ['',
       [Validators.required]
@@ -62,18 +61,17 @@ export class SignUpComponent implements OnInit {
   }
 
   attemptRegister() : void {
+    this.user = null;
+    this.error = "";
     const data = this.form.value;
     let user: Customer | Restaurant;
     if (data.user_type != "Restaurant") {
       user = {"username": data.username!, "passwd": data.password!, "reservations": []};
-      this.customerService.registerCustomer(user).subscribe();
+      this.customerService.registerCustomer(user).subscribe(value => this.user=value, error => this.error=error.error.error);
     } else {
       user = {"username": data.username!, "passwd": data.password!, "reservations": [],
         "name": data.restaurant_name!, "address": data.address!, "phone": data.phone!};
-        ///add emitter to listen to newly added restaurant
-      this.restaurantService.postRestaurant(user).subscribe(json => this.onRestaurantAdded.emit());
-      this.restaurantService.inputValue = this.inputValue.nativeElement.value;
+      this.restaurantService.postRestaurant(user).subscribe(value => this.user=value, error => this.error=error.error.error);
     }
-    console.log(user);
   }
 }
