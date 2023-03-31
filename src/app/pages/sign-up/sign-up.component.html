@@ -30,7 +30,7 @@
   <div *ngIf="form.value.user_type == 'Restaurant'" class="restaurant_fields">
     <div>
       <label>Restaurant Name</label><br>
-      <input type="text" formControlName="restaurant_name">
+      <input #inputValue type="text" formControlName="restaurant_name">
       <div *ngIf="form.controls['restaurant_name'].invalid" class="invalid-input">
         Restaurants require names
       </div>
@@ -38,18 +38,17 @@
 
     <div>
       <label>Restaurant Address</label><br>
-      <input type="text" formControlName="address">
+      <input #inputValue type="text" formControlName="address">
       <div *ngIf="form.controls['address'].invalid" class="invalid-input">
         Restqurants require addresses
       </div>
     </div>
 
     <label>Restaurant Telephone</label><br>
-    <input type="text" formControlName="phone">
+    <input #inputValue type="text" formControlName="phone">
   </div>
   
-  <button type="submit" [disabled]="form.invalid">
-    Sign-up</button>
+  <button type="submit" [disabled]="form.invalid">Sign-up</button>
   <div *ngIf="error">
     Error occured during signup: {{error}}
   </div>
@@ -68,4 +67,3 @@
     <button routerLink="/">Login</button>
   </div>
 </form>
-

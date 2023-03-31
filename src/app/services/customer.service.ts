@@ -9,6 +9,8 @@ import { Reservation } from '../models/Reservation';
 })
 export class CustomerService {
 
+  customer : Customer = {username:"", passwd:"", reservation:""}
+
   constructor(private http : HttpClient) { }
 
   registerCustomer(customer : Customer) : Observable<Customer> {
@@ -18,11 +20,11 @@ export class CustomerService {
     return this.http.post<Customer>("http://127.0.0.1:9000/customer/register", customer, {headers: header});
   }
 
-  loginCustomer() : Observable<Customer> {
+  loginCustomer(customer: Customer) : Observable<Customer> {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.get<Customer>("http://127.0.0.1:9000/customer/login");
+    return this.http.post<Customer>("http://127.0.0.1:9000/customer/login", customer, {headers: header});
   }
 
   getReservations(id : BigInt) : Observable<Reservation[]> {

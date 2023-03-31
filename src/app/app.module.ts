@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
+import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReservationListComponent } from './components/reservation-list/reservat
     MyReservationsComponent,
     ReservationListComponent,
     MenuItemComponent,
-    MenuItemInputComponent
+    MenuItemInputComponent, 
+    CustomerPageComponent
   ],
   imports: [
     BrowserModule,
