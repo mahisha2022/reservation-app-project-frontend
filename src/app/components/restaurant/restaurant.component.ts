@@ -14,7 +14,7 @@ export class RestaurantComponent {
 
   @Input()
   restaurant : Restaurant = {
-    userId : 1,
+    id : 1,
     username : "test username",
     passwd : "test password",
     name : "Test Restaurant",
