@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormsModule, Validators, FormBuilder } from '@angular/forms';
 import { Customer } from '../../models/Customer';
 import { Restaurant } from '../../models/Restaurant';
@@ -43,6 +43,9 @@ export class SignUpComponent implements OnInit {
   /**
    * Constructor
    */
+
+  @ViewChild('inputValue', { static: true })
+  inputValue!: { nativeElement: { value: string;}; };
 
   constructor(private customerService: CustomerService,
     private restaurantService: RestaurantService,
