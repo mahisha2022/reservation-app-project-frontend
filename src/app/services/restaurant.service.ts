@@ -7,7 +7,10 @@ import { Restaurant } from '../models/Restaurant';
   providedIn: 'root'
 })
 export class RestaurantService {
+
 ///
+  inputValue!: string;
+
   restaurant : Restaurant [] =[];
 
    constructor(private http : HttpClient) { }

@@ -17,13 +17,13 @@ export class RestaurantListComponent {
   // @Input()
   restaurants : Restaurant[] = [];
 
-
+  inputValue: string;
 
   /**
    * Constructor
    */
 
-  constructor(public restaurantService: RestaurantService) { }
+  constructor(public restaurantService: RestaurantService) {this.inputValue = this.restaurantService.inputValue }
 
 
 
