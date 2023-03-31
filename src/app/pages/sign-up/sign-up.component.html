@@ -27,10 +27,6 @@
     <input type="radio" name="user_type" value="Restaurant" formControlName="user_type">Restaurant
   </div>
 
-   <div> 
-    <button type="submit" [disabled]="form.invalid" *ngIf="form.value.user_type == 'Customer'" routerLink="/listOfRestaurants" (click)="attemptRegister()">
-      Sign-up</button>
-  </div>
   <div *ngIf="form.value.user_type == 'Restaurant'" class="restaurant_fields">
     <div>
       <label>Restaurant Name</label><br>
@@ -52,8 +48,7 @@
     <input #inputValue type="text" formControlName="phone">
   </div>
   
-  <button type="submit" [disabled]="form.invalid">
-    Sign-up</button>
+  <button type="submit" [disabled]="form.invalid">Sign-up</button>
   <div *ngIf="error">
     Error occured during signup: {{error}}
   </div>
@@ -72,4 +67,3 @@
     <button routerLink="/">Login</button>
   </div>
 </form>
-

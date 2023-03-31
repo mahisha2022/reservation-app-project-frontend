@@ -13,17 +13,16 @@ export class RestaurantComponent implements OnInit{
    */
 
   @Input()
-    restaurant: Restaurant={
-      address: '',
-      reservations: [],
-      username: '',
-      passwd: '',
-       name : '',
-    phone: '',
+  restaurant : Restaurant = {
+    id : 1,
+    username : "test username",
+    passwd : "test password",
+    name : "Test Restaurant",
+    address: "test address",
+    phone: "989-111-1111",
     openAt: "11:00AM",
     closeAt: "10:00PM",
     totalSeats: 100,
-  
     };
     // userId : 1,
     // username : "test username",
