@@ -15,7 +15,7 @@ export class RestaurantDetailsComponent {
    * Member Variables
    */
 
-  userId : string;
+  userId : number;
   selectedRestaurant : Restaurant = {
     address: "test address",
     phone: "989-111-1111",
@@ -40,9 +40,14 @@ export class RestaurantDetailsComponent {
 
     const userId = this.route.snapshot.queryParamMap.get('id');
     if (userId != null) {
-      this.userId = userId;
+      let numTest: number = +userId;
+      if (numTest != null) {
+        this.userId = numTest;
+      } else {
+        this.userId = -1;
+      }
     } else {
-      this.userId = "";
+      this.userId = -1;
     }
     console.log(this.userId);
 
