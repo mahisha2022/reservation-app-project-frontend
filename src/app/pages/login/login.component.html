@@ -16,15 +16,12 @@
         <input type="radio" name="user_type" value="Restaurant" formControlName="user_type">Restaurant
       </div>
     <br>
-    <button  *ngIf="form.value.user_type == 'Customer'"  (click)="login()" >Login</button>
+    <button  *ngIf="form.value.user_type == 'Customer'"  (click)="login()">Login</button>
     <br>
     <button  *ngIf="form.value.user_type == 'Restaurant'"  routerLink = "/adminDetails" (click)="login()">Login</button>
     <br>
     <br>
     <button routerLink = "/signUp">Sign Up</button>
-    <br>
-    <br>
-    <button routerLink = "/currentReservations">Temp Restaurant Login Button</button>
 </form>
 </div>
 

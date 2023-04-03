@@ -4,7 +4,7 @@
 <p>Address: {{restaurant.address}}</p>
 <p>Phone: {{restaurant.phone}}</p>
 <button *ngIf="isAdminPage()" data="restaurant">details</button>
-<button *ngIf="!isAdminPage()"> Reserve</button>
+<button *ngIf="!isAdminPage()" data="restaurant" (click)="transitionToDetails()">Reserve</button>
 </div>
 
 

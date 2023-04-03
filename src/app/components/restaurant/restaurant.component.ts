@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Restaurant } from 'src/app/models/Restaurant';
 
@@ -13,6 +13,8 @@ export class RestaurantComponent implements OnInit{
    * Member Variables
    */
 
+  @Output()
+  moveToDetailsEvent = new EventEmitter<Restaurant>();
   @Input()
   restaurant : Restaurant = {
     id : 1,
@@ -26,18 +28,7 @@ export class RestaurantComponent implements OnInit{
     totalSeats: 100,
     reservations: [],
     };
-    // userId : 1,
-    // username : "test username",
-    // passwd : "test password",
-    // name : "Test Restaurant",
-    // address: "test address",
-    // phone: "989-111-1111",
-    // openAt: "11:00AM",
-    // closeAt: "10:00PM",
-    // totalSeats: 100,
-    // reservations : [],
   
-
 
 
   /**
@@ -45,17 +36,21 @@ export class RestaurantComponent implements OnInit{
    */
 
   constructor(private route: ActivatedRoute) { }
-  ngOnInit(): void {}
-
-  isAdminPage(){
-    return this.route.snapshot.routeConfig?.path === 'adminDetails';
-  }
- 
 
 
 
   /**
    * Class Methods
    */
+
+  ngOnInit(): void {}
+
+  isAdminPage() {
+    return this.route.snapshot.routeConfig?.path === 'adminDetails';
+  }
+
+  transitionToDetails() {
+    this.moveToDetailsEvent.emit(this.restaurant);
+  }
 
 }

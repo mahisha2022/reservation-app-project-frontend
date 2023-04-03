@@ -1,6 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Customer } from 'src/app/models/Customer';
 import { Reservation } from 'src/app/models/Reservation';
+import { CustomerService } from 'src/app/services/customer.service';
 import { ReservationsAppServiceService } from 'src/app/services/reservations.service';
 
 @Component({
@@ -13,33 +16,55 @@ export class ReservationInputComponent implements OnInit{
   /**
    * Member Variables
    */
-  form = this.fb.group({
-   
 
+  private customer : Customer = {
+    username: '',
+    passwd: ''
+  }
+  form = this.fb.group({
     reservationDate: '',
     guestNum: 0,
     specialAccomodation: '',
   });
 
+
+
+  /**
+   * Constructor
+   */
+
   constructor(private reservationService: ReservationsAppServiceService, 
-        private fb: FormBuilder){}
+    private fb: FormBuilder, 
+    private customerService : CustomerService,
+    private route:ActivatedRoute) { }
+
+  
+
+  /**
+   * Class methods
+   */
+
   ngOnInit(): void {
     throw new Error('Method not implemented.');
+    const id = this.route.snapshot.queryParamMap.get('id');
+    console.log(id);
+    // this.customerService.getCustomer().subscribe(customer => {
+    //   this.customer = customer;
+    // });
+
   }
 
-
-    submitReservation(): void{
-      const data = this.form.value;
-        let reservation : Reservation = {
-          "reservationDate": data.reservationDate!, "guestNum": data.guestNum!,
-          "specialAccomodation": data.specialAccomodation!,
-
-          //need help here 
-          userId: 0,
-          restaurantId: 0
-        }
-        this.reservationService.postReservation(reservation).subscribe();
+  submitReservation(): void{
+    const data = this.form.value;
+    console.log(this.customer.id);
+    let reservation : Reservation = {
+      "reservationDate": data.reservationDate!, "guestNum": data.guestNum!,
+      "specialAccomodation": data.specialAccomodation!,
+      userId: this.customer.id!,
+      restaurantId: 0
     }
+    this.reservationService.postReservation(reservation).subscribe();
+  }
 
 
 

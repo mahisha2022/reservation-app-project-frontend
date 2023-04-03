@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Restaurant } from 'src/app/models/Restaurant';
 import { CustomerService } from 'src/app/services/customer.service';
 import { RestaurantService } from 'src/app/services/user-auth';
@@ -14,41 +15,7 @@ export class ListOfRestaurantsComponent {
    * Member Variables
    */
 
-  restaurants : Restaurant[] = [
-    {
-      address: "test address",
-      phone: "989-111-1111",
-      openAt: "11:00AM",
-      closeAt: "10:00PM",
-      totalSeats: 100,
-      username : "test username",
-      passwd : "test password",
-      name : "Test Restaurant",
-      reservations: []
-    },
-    {
-      address: "test address",
-      phone: "989-111-1111",
-      openAt: "11:00AM",
-      closeAt: "10:00PM",
-      totalSeats: 100,
-      username : "test username",
-      passwd : "test password",
-      name : "Test Restaurant 2",
-      reservations: []
-    },
-    {
-      address: "test address",
-      phone: "989-111-1111",
-      openAt: "11:00AM",
-      closeAt: "10:00PM",
-      totalSeats: 100,
-      username : "test username",
-      passwd : "test password",
-      name : "Test Restaurant 3",
-      reservations: []
-    }
-  ];
+  restaurants : Restaurant[] = [ ];
 
 
 
@@ -56,15 +23,34 @@ export class ListOfRestaurantsComponent {
    * Constructor
    */
 
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(private restaurantService: RestaurantService, 
+    private router: Router, 
+    private route:ActivatedRoute) { }
 
 
 
   /**
    * Class Methods
    */
-  ///Listen to the added restaurant from the signup component 
-    onRestaurantAdded(newRestaurant: Restaurant){this.restaurants.push(newRestaurant)}
 
+  ngOnInit() {
+    
+  }
+
+  ///Listen to the added restaurant from the signup component 
+  onRestaurantAdded(newRestaurant: Restaurant) {
+    this.restaurants.push(newRestaurant);
+  }
+
+  transitionToRestaurantDetails(restaurant:Restaurant) {
+    const navigationExtras: NavigationExtras = {
+      
+      queryParams: {
+        id: this.route.snapshot.queryParamMap.get('id'),
+        restaurantId: restaurant.id
+      }
+    }
+    this.router.navigate(["/restaurantDetails"], navigationExtras);
+  }
 
 }

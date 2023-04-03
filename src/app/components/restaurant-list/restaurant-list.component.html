@@ -1,5 +1,5 @@
 <div *ngFor = "let restaurant of restaurants">
-    <app-restaurant [restaurant] = "restaurant" ></app-restaurant>
+    <app-restaurant [restaurant] = "restaurant" (moveToDetailsEvent)="transitionToDetails($event)"></app-restaurant>
     <!-- <app-sign-up ></app-sign-up> -->
 
         <!-- <p> Restaurant Name: {{restaurant.name}}</p>

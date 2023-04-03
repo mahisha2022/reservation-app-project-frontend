@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Reservation } from 'src/app/models/Reservation';
 import { Restaurant } from 'src/app/models/Restaurant';
 import { ReservationsAppServiceService } from 'src/app/services/reservations.service';
@@ -14,6 +15,7 @@ export class RestaurantDetailsComponent {
    * Member Variables
    */
 
+  userId : string;
   selectedRestaurant : Restaurant = {
     address: "test address",
     phone: "989-111-1111",
@@ -33,17 +35,23 @@ export class RestaurantDetailsComponent {
    * Constructor
    */
 
-  constructor(private reservationService: ReservationsAppServiceService) { }
+  constructor(private reservationService: ReservationsAppServiceService,
+    private route:ActivatedRoute) { 
+
+    const userId = this.route.snapshot.queryParamMap.get('id');
+    if (userId != null) {
+      this.userId = userId;
+    } else {
+      this.userId = "";
+    }
+    console.log(this.userId);
+
+  }
 
 
 
   /**
    * Class Methods
    */
-
-  reservationMade(reservation: Reservation) {
-    reservation.restaurantId = this.selectedRestaurant.id!;
-    this.reservationService.postReservation(reservation).subscribe();
-  }
 
 }
