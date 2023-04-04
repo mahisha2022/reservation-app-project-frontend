@@ -13,14 +13,17 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class LoginComponent implements OnInit{
 
-
+  /**
+   * Member Variables
+   */
   
-    username: string ="";
-    passwd: string = "";
-    form = this.fb.group({
-    user_type: ['', Validators.required],})
-    currentCustomer : Customer = {
-      username:'', passwd:'' }
+  username: string ="";
+  passwd: string = "";
+  form = this.fb.group({
+    user_type: ['', Validators.required],
+    username: '',
+    password: ''
+  });
   
  
 
@@ -44,19 +47,68 @@ export class LoginComponent implements OnInit{
 
     const data = this.form.value;
     let user: Customer | Restaurant;
-    if (data.user_type != "Restaurant" && this.username === this.currentCustomer.username && this.passwd === this.currentCustomer.passwd ) {
-      let user = {username: this.username, passwd: this.passwd, id: 1000};
-      this.customerService.loginCustomer(user).subscribe(user => {
+
+    console.log(this.username);
+    console.log(this.passwd);
+
+    if (data.user_type == "Customer") {
+
+      let user = {username: this.username, passwd: this.passwd, id: 1000, reservations: []};
+      console.log(user);
+      this.customerService.loginCustomer(user).subscribe(foundUser => {
+
+        if (foundUser == null) {
+
+          alert("Invalid Login!");
+
+        } else {
+
+          if (foundUser.id != null) {
+            const navigationExtras: NavigationExtras = {
+              queryParams: {
+                id: foundUser.id!
+              }
+            }
+            this.router.navigate(["/listOfRestaurants"], navigationExtras);
+          }
+
+        }
         
       });
-      const navigationExtras: NavigationExtras = {
-        queryParams: {
-          id: user.id
-        }
+
+    } else if (data.user_type == "Restaurant" ) {
+
+      let restaurant : Restaurant = {
+        address: '',
+        reservations: [],
+        username: this.username,
+        passwd: this.passwd
       }
-      this.router.navigate(["/listOfRestaurants"], navigationExtras);
+      this.restaurantService.loginRestaurant(restaurant).subscribe(foundRestaurant =>{
+        
+        if (foundRestaurant == null) {
+
+          alert("Invalid Login!");
+
+        } else {
+
+          if (foundRestaurant.id != null) {
+            const navigationExtras: NavigationExtras = {
+              queryParams: {
+                id: foundRestaurant.id!
+              }
+            }
+            this.router.navigate(["/adminDetails"], navigationExtras);
+          }
+
+        }
+
+      });
+
     } else {
-      console.log("invalid username or password")
+
+      alert("Please Select a User Type to continue!");
+
     }
 
   }
