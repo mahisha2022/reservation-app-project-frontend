@@ -21,6 +21,7 @@
 .title {
     font-size: 200%;
     text-align: center;
+    padding: 5px;
 }
 
 .header {
@@ -46,4 +47,12 @@ button {
 
 button:hover {
     background-color: deepskyblue;
+}
+
+p {
+    color: cornsilk;
+}
+
+.radio_form label {
+    color: cornsilk;
 }
