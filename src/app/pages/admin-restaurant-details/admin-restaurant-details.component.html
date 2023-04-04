@@ -1,5 +1,8 @@
-<app-restaurant-navbar></app-restaurant-navbar>
-<br>
-<app-menu-item-input (addItemEvent)="addItem($event)"></app-menu-item-input>
-<br>
-<app-menu-list [menuItems] = "menuItems" (deletingItem)="deleteItem($event)"></app-menu-list>
+<div class="background">
+    <app-restaurant-navbar></app-restaurant-navbar>
+    <br>
+    <div class="row">
+        <app-menu-list [menuItems]="menuItems" (deletingItem)="deleteItem($event)"></app-menu-list>
+        <app-menu-item-input class="input" (addItemEvent)="addItem($event)"></app-menu-item-input>
+    </div>
+</div>
