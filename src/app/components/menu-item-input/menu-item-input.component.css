@@ -8,6 +8,7 @@ div {
 button {
     border: none;
     background-color: cornsilk;
+    border-radius: 4px;
     display: block;
     margin: 0 auto;
     transition-duration: 0.4s;
