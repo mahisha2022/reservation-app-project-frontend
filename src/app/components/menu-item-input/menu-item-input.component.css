@@ -1,0 +1,36 @@
+div {
+    background-color: cornflowerblue;
+    width: 300px;
+    display: block;
+    padding: 10px;
+}
+
+button {
+    border: none;
+    background-color: cornsilk;
+    display: block;
+    margin: 0 auto;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: deepskyblue;
+}
+
+p {
+    color: cornsilk;
+    text-align: center;
+}
+
+.title {
+    font-size: 180%;
+}
+
+.subtitle {
+    font-size: 120%;
+}
+
+input {
+    margin: auto;
+    display: block;
+}

@@ -1,5 +1,10 @@
-<p>Add Item</p>
-<input type="text" id="itemname" placeholder="Menu Title" [(ngModel)]="itemName">
-<input type="number" id="itemprice" placeholder="Menu Price" step="0.01" [(ngModel)]="itemPrice">
-<br>
-<button (click)="addItem()">Add Item</button>
+<div>
+    <p class="title">Add Item</p>
+    <p class="subtitle">Menu Title:</p>
+    <input type="text" id="itemname" placeholder="Menu Title" [(ngModel)]="itemName">
+    <p class="subtitle">Menu Price:</p>
+    <input type="number" id="itemprice" step="0.01" [(ngModel)]="itemPrice">
+    <br>
+    <br>
+    <button (click)="addItem()">Add Item</button>
+</div>
