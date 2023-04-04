@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Reservation } from 'src/app/models/Reservation';
 import { Restaurant } from 'src/app/models/Restaurant';
 import { ReservationsAppServiceService } from 'src/app/services/reservations.service';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-details',
@@ -15,7 +16,7 @@ export class RestaurantDetailsComponent {
    * Member Variables
    */
 
-  userId : number;
+  userId : number = -1;
   selectedRestaurant : Restaurant = {
     address: "test address",
     phone: "989-111-1111",
@@ -24,7 +25,7 @@ export class RestaurantDetailsComponent {
     totalSeats: 100,
     username : "test username",
     passwd : "test password",
-    name : "Test Restaurant",
+    name : "",
     reservations: []
   }
   availableReservations : Reservation[] = [];
@@ -36,7 +37,21 @@ export class RestaurantDetailsComponent {
    */
 
   constructor(private reservationService: ReservationsAppServiceService,
+    private restaurantService: RestaurantService,
     private route:ActivatedRoute) { 
+
+      this.getUserId();
+      this.getSelectedRestaurant();
+
+  }
+
+
+
+  /**
+   * Class Methods
+   */
+
+  getUserId() : void {
 
     const userId = this.route.snapshot.queryParamMap.get('id');
     if (userId != null) {
@@ -49,14 +64,22 @@ export class RestaurantDetailsComponent {
     } else {
       this.userId = -1;
     }
-    console.log(this.userId);
 
   }
 
+  getSelectedRestaurant() : void {
 
+    const paramId = this.route.snapshot.queryParamMap.get('restaurantId');
+    if (paramId != null) {
+      const id : number = +paramId;
+      if (id != null) {
+        this.restaurantService.getRestaurantById(id).subscribe(
+          restaurant => {
+            this.selectedRestaurant = restaurant;
+          })
+      }
+    }
 
-  /**
-   * Class Methods
-   */
+  }
 
 }

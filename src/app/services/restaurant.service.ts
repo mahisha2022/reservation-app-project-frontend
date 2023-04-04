@@ -30,6 +30,13 @@ export class RestaurantService {
     return this.http.get<Restaurant[]>("http://127.0.0.1:9000/restaurants", {headers: header});
   }
 
+  getRestaurantById(id:number) : Observable<Restaurant> {
+    let header : HttpHeaders = new HttpHeaders();
+    header.append("accept", "text/json");
+    header.append("Access-Control-Allow-Origin", "*");
+    return this.http.get<Restaurant>(`http://127.0.0.1:9000/restaurant/${id}`, {headers: header});
+  }
+
   updateRestaurant(id: number, restaurant: Restaurant): Observable<Restaurant>{
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
@@ -43,4 +50,5 @@ export class RestaurantService {
     header.append("Access-Control-Allow-Origin", "*");
     return this.http.delete<Restaurant>(`http://127.0.0.1/restaurant/${id}`,  {headers: header});
   }
+  
 }

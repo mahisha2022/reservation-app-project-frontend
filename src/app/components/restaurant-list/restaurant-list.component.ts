@@ -28,7 +28,7 @@ export class RestaurantListComponent {
    */
 
   constructor(public restaurantService: RestaurantService) {
-    this.inputValue = this.restaurantService.inputValue 
+    this.inputValue = this.restaurantService.inputValue;
   }
 
 
@@ -37,17 +37,18 @@ export class RestaurantListComponent {
    * Class Methods
    */
 
-  ngOnInit() : void {this.getAddedRestaurant() };
+  ngOnInit() : void {
+    this.getAddedRestaurant();
+  }
 
   transitionToDetails(restaurant:Restaurant) {
     this.transitionToDetailsEvent.emit(restaurant);
   }
 
   getAddedRestaurant(){
-    this.restaurantService.getRestaurant().subscribe(json=>{this.restaurants=json})
+    this.restaurantService.getRestaurant().subscribe(json=> {
+      this.restaurants=json
+    });
   }
 
-  // getAddedRestaurant(newRestaurant: Restaurant){
-  //   this.restaurants.push(newRestaurant);
-  // }
 }

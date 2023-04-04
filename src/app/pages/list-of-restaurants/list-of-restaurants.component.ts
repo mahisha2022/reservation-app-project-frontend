@@ -47,7 +47,7 @@ export class ListOfRestaurantsComponent {
       
       queryParams: {
         id: this.route.snapshot.queryParamMap.get('id'),
-        restaurantId: restaurant.id
+        restaurantId: restaurant.id!
       }
     }
     this.router.navigate(["/restaurantDetails"], navigationExtras);

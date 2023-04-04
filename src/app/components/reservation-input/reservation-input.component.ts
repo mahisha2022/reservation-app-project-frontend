@@ -45,13 +45,8 @@ export class ReservationInputComponent implements OnInit{
    */
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
     const id = this.route.snapshot.queryParamMap.get('id');
-    console.log(id);
-    // this.customerService.getCustomer().subscribe(customer => {
-    //   this.customer = customer;
-    // });
-
   }
 
   submitReservation(): void{
