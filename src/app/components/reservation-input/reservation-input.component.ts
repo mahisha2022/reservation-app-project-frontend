@@ -53,8 +53,17 @@ export class ReservationInputComponent implements OnInit{
       userId: -1,
       restaurantId: -1
     }
-    this.createReservationEvent.emit(reservation);
-    this.form.reset();
+    
+    if (data.reservationDate != null && data.guestNum != null && data.guestNum! > 0 && data.specialAccomodation != null) {
+
+      this.createReservationEvent.emit(reservation);
+      this.form.reset();
+
+    } else {
+
+      alert("Enter Valid Data Before Submitting!");
+
+    }
 
   }
   
