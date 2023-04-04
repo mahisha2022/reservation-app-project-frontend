@@ -54,13 +54,8 @@ export class ReservationInputComponent implements OnInit{
       restaurantId: -1
     }
     this.createReservationEvent.emit(reservation);
+    this.form.reset();
 
   }
-
-
-
- 
-    
-
-
+  
 }

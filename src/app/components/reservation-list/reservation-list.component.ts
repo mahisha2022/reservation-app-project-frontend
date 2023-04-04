@@ -9,23 +9,43 @@ import { ReservationsAppServiceService } from 'src/app/services/reservations.ser
 })
 export class ReservationListComponent {
 
+  /**
+   * Member Variables
+   */
+
   @Input()
   reservations : Reservation[] = [];
 
 
 
+  /**
+   * Constructor
+   */
+
   constructor(private reservationService: ReservationsAppServiceService) { }
 
 
-  ngOnInit() : void { this.reservationListForACustomer();}
 
+  /**
+   * Class Methods
+   */
 
+  ngOnInit() : void { 
+    
+    this.reservationListForACustomer();
+  
+  }
 
- reservationListForARestaurant(){this.reservationService.getRestaurantReseravtiont().subscribe()}
+  reservationListForARestaurant() {
+  
+    //this.reservationService.getRestaurantReseravtiont().subscribe();
 
- reservationListForACustomer(){this.reservationService.getCustomerReseravtiont().subscribe()}
+  }
 
- 
+  reservationListForACustomer() {
+  
+    //this.reservationService.getCustomerReseravtiont().subscribe();
 
+  }
 
 }
