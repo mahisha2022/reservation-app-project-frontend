@@ -82,4 +82,14 @@ export class RestaurantDetailsComponent {
 
   }
 
+  postReservation(reservation: Reservation) {
+
+    reservation.userId = this.userId;
+    reservation.restaurantId = this.selectedRestaurant.id!;
+    this.reservationService.postReservation(reservation).subscribe(newReservation => {
+      alert("Reservation Created!");
+    });
+
+  }
+
 }

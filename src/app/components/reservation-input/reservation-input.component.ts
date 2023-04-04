@@ -17,10 +17,8 @@ export class ReservationInputComponent implements OnInit{
    * Member Variables
    */
 
-  private customer : Customer = {
-    username: '',
-    passwd: ''
-  }
+  @Output()
+  createReservationEvent = new EventEmitter<Reservation>();
   form = this.fb.group({
     reservationDate: '',
     guestNum: 0,
@@ -44,21 +42,19 @@ export class ReservationInputComponent implements OnInit{
    * Class methods
    */
 
-  ngOnInit(): void {
-    //throw new Error('Method not implemented.');
-    const id = this.route.snapshot.queryParamMap.get('id');
-  }
+  ngOnInit(): void { }
 
-  submitReservation(): void{
+  submitReservation(): void {
+    
     const data = this.form.value;
-    console.log(this.customer.id);
     let reservation : Reservation = {
       "reservationDate": data.reservationDate!, "guestNum": data.guestNum!,
       "specialAccomodation": data.specialAccomodation!,
-      userId: this.customer.id!,
-      restaurantId: 0
+      userId: -1,
+      restaurantId: -1
     }
-    this.reservationService.postReservation(reservation).subscribe();
+    this.createReservationEvent.emit(reservation);
+
   }
 
 

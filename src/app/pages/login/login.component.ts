@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit{
 
   ngOnInit() : void { }
 
- login() {
+  login() : void {
 
     const data = this.form.value;
     let user: Customer | Restaurant;
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit{
         }
       }
       this.router.navigate(["/listOfRestaurants"], navigationExtras);
-    } else{
+    } else {
       console.log("invalid username or password")
     }
 
