@@ -1,3 +1,14 @@
 .item {
     margin-left: 1%;
+    background-color: cornsilk;
+    border: none;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.bar {
+    background-color: cornflowerblue;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
