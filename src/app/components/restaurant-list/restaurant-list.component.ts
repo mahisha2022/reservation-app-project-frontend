@@ -19,7 +19,6 @@ export class RestaurantListComponent {
   @Input()
   userId : number = -1;
   restaurants : Restaurant[] = [];
-  inputValue: string;
 
 
 
@@ -27,9 +26,7 @@ export class RestaurantListComponent {
    * Constructor
    */
 
-  constructor(public restaurantService: RestaurantService) {
-    this.inputValue = this.restaurantService.inputValue;
-  }
+  constructor(public restaurantService: RestaurantService) { }
 
 
 
@@ -38,17 +35,23 @@ export class RestaurantListComponent {
    */
 
   ngOnInit() : void {
+
     this.getAddedRestaurant();
+
   }
 
   transitionToDetails(restaurant:Restaurant) {
+
     this.transitionToDetailsEvent.emit(restaurant);
+
   }
 
-  getAddedRestaurant(){
+  getAddedRestaurant() {
+
     this.restaurantService.getRestaurant().subscribe(json=> {
       this.restaurants=json
     });
+
   }
 
 }

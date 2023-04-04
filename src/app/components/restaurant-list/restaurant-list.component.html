@@ -1,14 +1,3 @@
 <div *ngFor = "let restaurant of restaurants">
-    <app-restaurant [restaurant] = "restaurant" (moveToDetailsEvent)="transitionToDetails($event)"></app-restaurant>
-    <!-- <app-sign-up ></app-sign-up> -->
-
-        <!-- <p> Restaurant Name: {{restaurant.name}}</p>
-        <p>Restaurant Address: {{restaurant.address}}</p>
-        <p>Restaurant Phone: {{restaurant.phone}}</p>
-        <p> Open at: {{restaurant.openAt}}</p>
-        <p> Close at: {{restaurant.closeAt}}</p> -->
-        <!-- <app-sign-up (onRestaurantAdded)="getAddedRestaurant()"></app-sign-up> -->
-        <!-- <app-sign-up (onRestaurantAdded)="getAddedRestaurant($event)"></app-sign-up> -->
-        <p>{{inputValue}}</p>
-
+    <app-restaurant [restaurant]="restaurant" (moveToDetailsEvent)="transitionToDetails($event)"></app-restaurant>
 </div>
