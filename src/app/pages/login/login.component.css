@@ -13,6 +13,9 @@
     margin: auto;
     vertical-align: top;
     margin-left: 5%;
+    background-color: cornflowerblue;
+    padding: 10px;
+    border-radius: 4px;
 }
 
 .title {
@@ -28,4 +31,19 @@
 
 .row {
     white-space: nowrap;
+}
+
+.color {
+    background-color: cornsilk;
+}
+
+button {
+    border: none;
+    border-radius: 4px;
+    background-color: cornsilk;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: deepskyblue;
 }

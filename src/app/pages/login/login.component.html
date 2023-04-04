@@ -1,53 +1,26 @@
-<div class="background">
+<div class="color">
+  <div class="background">
     <div class="header">
         <p class="title">Reservations App</p>
     </div>
+  </div>
+  <div class="login">
+    <form [formGroup]="form">
+      <p class="row">Username:</p>
+      <input class="row" type="text" id="username" formControlName="username" [(ngModel)]="username">
+      <p>Password:</p>
+      <input type="password" id="password" formControlName="password" [(ngModel)]="passwd">
+      <br>
+      <div class="radio_form">
+        <p>I am a ...</p>
+        <input type="radio" name="user_type" value="Customer" formControlName="user_type">Customer
+        <input type="radio" name="user_type" value="Restaurant" formControlName="user_type">Restaurant
+      </div>
+      <br>
+      <button (click)="login()">Login</button>
+      <br>
+      <br>
+      <button routerLink = "/signUp">Sign Up</button>
+    </form>
+  </div>
 </div>
-<div class="login">
-  <form [formGroup]="form">
-    <p class="row">Username:</p>
-    <input class="row" type="text" id="username" formControlName="username" [(ngModel)]="username">
-    <p>Password:</p>
-    <input type="password" id="password" formControlName="password" [(ngModel)]="passwd">
-    <br>
-    <div class="radio_form">
-      <p>I am a ...</p>
-      <input type="radio" name="user_type" value="Customer" formControlName="user_type">Customer
-      <input type="radio" name="user_type" value="Restaurant" formControlName="user_type">Restaurant
-    </div>
-    <br>
-    <button (click)="login()">Login</button>
-    <br>
-    <br>
-    <button routerLink = "/signUp">Sign Up</button>
-  </form>
-</div>
-
-<!-- <div class="background">
-    <div class="header">
-        <p class="title">Reservations App</p>
-    </div>
-
-<form [formGroup]="form" (ngSubmit)="login()">
-  <label>Username</label><br>
-  <input type="username" formControlName="username"><br>
-  <div *ngIf="form.controls['username'].invalid" class="invalid-input">
-    Username required
-  </div>
-
-  <label>Password</label><br>
-  <input type="text" formControlName="password"><br>
-  <div *ngIf="form.controls['passwd'].invalid" class="invalid-input">
-    password required
-  </div>
-
-  <div class="radio_form">
-    <p>I am a ...</p>
-    <input type="radio" name="user_type" value="Customer" formControlName="user_type">Customer
-    <input type="radio" name="user_type" value="Restaurant" formControlName="user_type">Restaurant
-  </div>
-
-   <div> 
-    <button type="submit" [disabled]="form.invalid" *ngIf="form.value.user_type == 'Customer'" routerLink="customer" >
-      Log in</button>
-  </div> -->
