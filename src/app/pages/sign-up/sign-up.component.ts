@@ -6,6 +6,7 @@ import { User } from '../../models/User';
 import { CustomerService } from 'src/app/services/customer.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 import Validation from './util/Validation';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,8 +19,6 @@ export class SignUpComponent implements OnInit {
    * Member Variables
    */
 
-  user: Customer | Restaurant | null = null;
-  error: string = "";
   form = this.fb.group({
     username: ['',
       [Validators.required]
@@ -40,6 +39,8 @@ export class SignUpComponent implements OnInit {
         Validation.restaurantReq('restaurant_name'), Validation.restaurantReq('address')],
   });
 
+
+
   /**
    * Constructor
    */
@@ -49,7 +50,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(private customerService: CustomerService,
     private restaurantService: RestaurantService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder, private router: Router) { }
 
     
 
@@ -57,21 +58,69 @@ export class SignUpComponent implements OnInit {
    * Class Methods
    */
 
-  ngOnInit() : void {
-  }
+  ngOnInit() : void { }
 
   attemptRegister() : void {
-    this.user = null;
-    this.error = "";
+
     const data = this.form.value;
     let user: Customer | Restaurant;
     if (data.user_type != "Restaurant") {
+
       user = {"username": data.username!, "passwd": data.password!, "reservations": []};
-      this.customerService.registerCustomer(user).subscribe(value => this.user=value, error => this.error=error.error.error);
+      this.customerService.registerCustomer(user).subscribe(customer => {
+
+        if (customer != null) {
+
+          if (customer.id != null) {
+            const navigationExtras: NavigationExtras = {
+              queryParams: {
+                id: customer.id!
+              }
+            }
+            this.router.navigate(["/listOfRestaurants"], navigationExtras);
+          }
+
+        } else {
+
+          this.registrationFailed();
+
+        }
+
+      });
+
     } else {
+
       user = {"username": data.username!, "passwd": data.password!, "reservations": [],
         "name": data.restaurant_name!, "address": data.address!, "phone": data.phone!};
-      this.restaurantService.postRestaurant(user).subscribe(value => this.user=value, error => this.error=error.error.error);
+      this.restaurantService.postRestaurant(user).subscribe(restaurant => {
+
+        if (restaurant != null) {
+
+          if (restaurant.id != null) {
+            const navigationExtras: NavigationExtras = {
+              queryParams: {
+                id: restaurant.id!
+              }
+            }
+            this.router.navigate(["/adminDetails"], navigationExtras);
+          }
+
+        } else {
+
+          this.registrationFailed();
+
+        }
+
+      });
+
     }
+
   }
+
+  registrationFailed() {
+
+    alert("Registration Failed! Please Try Again!");
+
+  }
+
 }

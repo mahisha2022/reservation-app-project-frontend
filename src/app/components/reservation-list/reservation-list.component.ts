@@ -30,22 +30,6 @@ export class ReservationListComponent {
    * Class Methods
    */
 
-  ngOnInit() : void { 
-    
-    this.reservationListForACustomer();
-  
-  }
-
-  reservationListForARestaurant() {
-  
-    //this.reservationService.getRestaurantReseravtiont().subscribe();
-
-  }
-
-  reservationListForACustomer() {
-  
-    //this.reservationService.getCustomerReseravtiont().subscribe();
-
-  }
+  ngOnInit() : void { }
 
 }
