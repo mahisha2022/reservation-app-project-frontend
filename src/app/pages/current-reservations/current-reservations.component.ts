@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Reservation } from 'src/app/models/Reservation';
+import { ReservationsAppServiceService } from 'src/app/services/reservations.service';
 
 @Component({
   selector: 'app-current-reservations',
@@ -20,7 +21,19 @@ export class CurrentReservationsComponent {
    * Constructor
    */
 
-  constructor() { }
+  constructor(private reservationService : ReservationsAppServiceService) {
+    
+    reservationService.getRestaurantReseravtiont().subscribe(reservations => {
+
+      if (reservations != null) {
+
+        this.currentReservations = reservations as Reservation[];
+
+      }
+
+    });
+
+  }
 
 
 

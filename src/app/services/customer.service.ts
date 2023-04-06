@@ -43,8 +43,7 @@ export class CustomerService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    let hold = this.http.post<Customer>("http://127.0.0.1:9000/customer/login", customer, {headers: header});
-    return hold;
+    return this.http.post<Customer>("http://127.0.0.1:9000/customer/login", customer, {headers: header});
 
   }
 
