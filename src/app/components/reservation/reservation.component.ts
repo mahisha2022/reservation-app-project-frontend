@@ -14,11 +14,15 @@ export class ReservationComponent {
 
   @Input()
   reservation : Reservation = {
+    reservationId: -1,
     userId: 0,
     restaurantId: 0,
     reservationDate: "05/29/2020",
+    reservationTime: "17:30",
     specialAccomodation: "None",
-    guestNum: 0
+    seats: 0,
+    name: '',
+    contactInfo: ''
   };
 
 

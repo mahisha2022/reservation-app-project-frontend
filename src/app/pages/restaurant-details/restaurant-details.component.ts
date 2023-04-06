@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Customer } from 'src/app/models/Customer';
 import { Reservation } from 'src/app/models/Reservation';
 import { Restaurant } from 'src/app/models/Restaurant';
+import { CustomerService } from 'src/app/services/customer.service';
 import { ReservationsAppServiceService } from 'src/app/services/reservations.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 
@@ -16,6 +18,11 @@ export class RestaurantDetailsComponent {
    * Member Variables
    */
 
+  currentUser : Customer = {
+    reservations: [],
+    username: '',
+    passwd: ''
+  }
   userId : number = -1;
   selectedRestaurant : Restaurant = {
     address: "test address",
@@ -38,6 +45,7 @@ export class RestaurantDetailsComponent {
 
   constructor(private reservationService: ReservationsAppServiceService,
     private restaurantService: RestaurantService,
+    private customerService : CustomerService,
     private route:ActivatedRoute) { 
 
       this.getUserId();
@@ -58,6 +66,7 @@ export class RestaurantDetailsComponent {
       let numTest: number = +userId;
       if (numTest != null) {
         this.userId = numTest;
+        this.getCurrentUserData(this.userId);
       } else {
         this.userId = -1;
       }
@@ -82,13 +91,32 @@ export class RestaurantDetailsComponent {
 
   }
 
+  getCurrentUserData(id : number) : void {
+
+    this.customerService.getCustomerById(id).subscribe(foundUser => {
+
+      if (foundUser != null) {
+        this.currentUser = foundUser as Customer;
+      }
+
+    });
+
+  }
+
   postReservation(reservation: Reservation) {
 
     reservation.userId = this.userId;
     reservation.restaurantId = this.selectedRestaurant.id!;
+    reservation.name = this.currentUser.username;
     console.log(reservation);
     this.reservationService.postReservation(reservation).subscribe(newReservation => {
-      alert("Reservation Created!");
+
+      if (newReservation != null) {
+
+        alert("Reservation Created!");
+
+      }
+      
     });
 
   }

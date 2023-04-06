@@ -1,13 +1,13 @@
 export interface Reservation {
-    // reservationId : number,
-    // userId : number,
-    // restaurantId : number,
-    // time : string
 
-    // reservationId : number,
+    reservationId : number,
     userId : number,
     restaurantId : number,
-    guestNum: number
+    seats: number,
+    name: string,
+    contactInfo: string,
     reservationDate: string,
+    reservationTime: string,
     specialAccomodation: string,
+
 }

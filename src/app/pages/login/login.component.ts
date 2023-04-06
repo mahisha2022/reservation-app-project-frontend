@@ -48,13 +48,13 @@ export class LoginComponent implements OnInit{
     const data = this.form.value;
     let user: Customer | Restaurant;
 
-    console.log(this.username);
-    console.log(this.passwd);
+    //console.log(this.username);
+    //console.log(this.passwd);
 
     if (data.user_type == "Customer") {
 
       let user = {username: this.username, passwd: this.passwd, id: 1000, reservations: []};
-      console.log(user);
+      //console.log(user);
       this.customerService.loginCustomer(user).subscribe(foundUser => {
 
         if (foundUser == null) {
@@ -70,6 +70,10 @@ export class LoginComponent implements OnInit{
               }
             }
             this.router.navigate(["/listOfRestaurants"], navigationExtras);
+          } else {
+
+            alert("Invalid Login!");
+
           }
 
         }
@@ -99,6 +103,10 @@ export class LoginComponent implements OnInit{
               }
             }
             this.router.navigate(["/adminDetails"], navigationExtras);
+          } else {
+
+            alert("Invalid Login!");
+
           }
 
         }

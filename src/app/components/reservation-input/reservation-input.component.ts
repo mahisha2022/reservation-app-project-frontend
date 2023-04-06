@@ -21,6 +21,7 @@ export class ReservationInputComponent implements OnInit{
   createReservationEvent = new EventEmitter<Reservation>();
   form = this.fb.group({
     reservationDate: '',
+    reservationTime: '',
     guestNum: 0,
     specialAccomodation: '',
   });
@@ -32,8 +33,7 @@ export class ReservationInputComponent implements OnInit{
    */
 
   constructor(private reservationService: ReservationsAppServiceService, 
-    private fb: FormBuilder, 
-    private customerService : CustomerService,
+    private fb: FormBuilder,
     private route:ActivatedRoute) { }
 
   
@@ -48,20 +48,29 @@ export class ReservationInputComponent implements OnInit{
     
     const data = this.form.value;
     let reservation : Reservation = {
-      "reservationDate": data.reservationDate!, "guestNum": data.guestNum!,
-      "specialAccomodation": data.specialAccomodation!,
+      reservationId: -1,
+      reservationDate: data.reservationDate!,
+      reservationTime: data.reservationTime!,
+      seats: data.guestNum!,
+      specialAccomodation: data.specialAccomodation!,
       userId: -1,
-      restaurantId: -1
+      restaurantId: -1,
+      name: '',
+      contactInfo: '111-222-3333'
     }
+
+    console.log("date: " + data.reservationDate);
+    console.log("time: " + data.reservationTime);
+    console.log("num of guests: " + data.guestNum);
+    console.log("special acc: " + data.specialAccomodation);
     
-    if (data.reservationDate != null && data.guestNum != null && data.guestNum! > 0 && data.specialAccomodation != null) {
+    if (data.reservationDate != null 
+      && data.reservationTime != null
+      && data.guestNum != null && data.guestNum! > 0 
+      && data.specialAccomodation != null) {
 
       this.createReservationEvent.emit(reservation);
       this.form.reset();
-
-    } else {
-
-      alert("Enter Valid Data Before Submitting!");
 
     }
 

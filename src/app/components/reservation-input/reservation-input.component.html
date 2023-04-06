@@ -3,13 +3,17 @@
     <br>
     <input type="date" value="2023-04-04" formControlName="reservationDate">
     <br>
+    <label>Reservation Time: </label>
+    <br>
+    <input type="time" value="" formControlName="reservationTime">
+    <br>
     <label> Number of Guests:</label>
     <br>
     <input type="number" step="1" formControlName="guestNum">
     <br>
     <label> Special Accomodation: </label>
     <br>
-    <input type="text" formArrayName="specialAccomodation" placeholder="special Accomodation">
+    <input type="text" formControlName="specialAccomodation" placeholder="special Accomodation">
     <br>
     <br>
     <button type="submit" (click)="submitReservation()">Submit</button>
