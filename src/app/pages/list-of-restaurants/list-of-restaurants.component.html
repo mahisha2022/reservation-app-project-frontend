@@ -1,4 +1,7 @@
-<app-customer-navbar></app-customer-navbar>
+<app-customer-navbar 
+(transitionToListOfRestaurants)="transitionToListOfRestaurants($event)" 
+(transitionToMyReservations)="transitionToMyReservations($event)">
+</app-customer-navbar>
 <br>
 <app-restaurant-list (transitionToDetailsEvent)="transitionToRestaurantDetails($event)"></app-restaurant-list>
 <br>

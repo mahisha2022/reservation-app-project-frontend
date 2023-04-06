@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Reservation } from 'src/app/models/Reservation';
+import { CustomerService } from 'src/app/services/customer.service';
 import { ReservationsAppServiceService } from 'src/app/services/reservations.service';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-current-reservations',
@@ -21,7 +23,8 @@ export class CurrentReservationsComponent {
    * Constructor
    */
 
-  constructor(private reservationService : ReservationsAppServiceService) {
+  constructor(private reservationService : ReservationsAppServiceService,
+    private restaurantService : RestaurantService) {
     
     reservationService.getRestaurantReseravtiont().subscribe(reservations => {
 

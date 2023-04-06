@@ -56,6 +56,31 @@ export class ListOfRestaurantsComponent {
       }
     }
     this.router.navigate(["/restaurantDetails"], navigationExtras);
+
+  }
+
+  transitionToListOfRestaurants(transition : boolean) {
+
+    const navigationExtras: NavigationExtras = {
+      
+      queryParams: {
+        id: this.route.snapshot.queryParamMap.get('id')
+      }
+    }
+    this.router.navigate(["/listOfRestaurants"], navigationExtras);
+
+  }
+
+  transitionToMyReservations(transition : boolean) {
+
+    const navigationExtras: NavigationExtras = {
+      
+      queryParams: {
+        id: this.route.snapshot.queryParamMap.get('id')
+      }
+    }
+    this.router.navigate(["/myReservations"], navigationExtras);
+
   }
 
 }

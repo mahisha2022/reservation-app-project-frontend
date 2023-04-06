@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Customer } from 'src/app/models/Customer';
 import { Reservation } from 'src/app/models/Reservation';
 import { Restaurant } from 'src/app/models/Restaurant';
@@ -46,7 +46,8 @@ export class RestaurantDetailsComponent {
   constructor(private reservationService: ReservationsAppServiceService,
     private restaurantService: RestaurantService,
     private customerService : CustomerService,
-    private route:ActivatedRoute) { 
+    private route:ActivatedRoute,
+    private router: Router) { 
 
       this.getUserId();
       this.getSelectedRestaurant();
@@ -118,6 +119,30 @@ export class RestaurantDetailsComponent {
       }
       
     });
+
+  }
+
+  transitionToListOfRestaurants(transition : boolean) {
+
+    const navigationExtras: NavigationExtras = {
+      
+      queryParams: {
+        id: this.route.snapshot.queryParamMap.get('id')
+      }
+    }
+    this.router.navigate(["/listOfRestaurants"], navigationExtras);
+
+  }
+
+  transitionToMyReservations(transition : boolean) {
+
+    const navigationExtras: NavigationExtras = {
+      
+      queryParams: {
+        id: this.route.snapshot.queryParamMap.get('id')
+      }
+    }
+    this.router.navigate(["/myReservations"], navigationExtras);
 
   }
 
