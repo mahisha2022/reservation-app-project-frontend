@@ -79,7 +79,7 @@ export class CurrentReservationsComponent {
         id: this.route.snapshot.queryParamMap.get('id')
       }
     }
-    this.router.navigate(["/listOfRestaurants"], navigationExtras);
+    this.router.navigate(["/adminDetails"], navigationExtras);
 
   }
 
@@ -91,7 +91,7 @@ export class CurrentReservationsComponent {
         id: this.route.snapshot.queryParamMap.get('id')
       }
     }
-    this.router.navigate(["/myReservations"], navigationExtras);
+    this.router.navigate(["/currentReservations"], navigationExtras);
 
   }
 
