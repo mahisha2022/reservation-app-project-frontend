@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { MenuItem } from 'src/app/models/MenuItem';
 import { Restaurant } from 'src/app/models/Restaurant';
 
@@ -51,11 +52,8 @@ export class AdminRestaurantDetailsComponent {
    * Constructor
    */
 
-  constructor() { }
-
-  // ngOnInit(): void {
-  //   throw new Error('Method not implemented.');
-  // }
+  constructor(private route:ActivatedRoute,
+    private router: Router) { }
 
 
 
@@ -80,6 +78,28 @@ export class AdminRestaurantDetailsComponent {
     }
   }
 
+  transitionToAdminDetails(transition : boolean) {
 
+    const navigationExtras: NavigationExtras = {
+      
+      queryParams: {
+        id: this.route.snapshot.queryParamMap.get('id')
+      }
+    }
+    this.router.navigate(["/listOfRestaurants"], navigationExtras);
+
+  }
+
+  transitionToCurrentReservations(transition : boolean) {
+
+    const navigationExtras: NavigationExtras = {
+      
+      queryParams: {
+        id: this.route.snapshot.queryParamMap.get('id')
+      }
+    }
+    this.router.navigate(["/myReservations"], navigationExtras);
+
+  }
 
 }

@@ -39,12 +39,12 @@ export class ReservationsAppServiceService {
 
   }
 
-  getRestaurantReseravtiont(): Observable<Reservation[]>{
+  getRestaurantReseravtiont(id : number): Observable<Reservation[]>{
 
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.get<Reservation[]>("http://127.0.0.1/reservations?restaurant", {headers: header});
+    return this.http.get<Reservation[]>("http://127.0.0.1/reservations/restaurant/" + id, {headers: header});
 
   }
 

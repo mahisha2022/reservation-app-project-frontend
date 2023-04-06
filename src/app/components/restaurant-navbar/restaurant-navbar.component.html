@@ -1,5 +1,5 @@
 <div class="bar">
-    <button class="item" routerLink="/currentReservations">My Reservations</button>
-    <button class="item" routerLink="/adminDetails">Admin Details</button>
+    <button class="item" (click)="currentReservationsButtonClicked()" routerLink="/currentReservations">My Reservations</button>
+    <button class="item" (click)="adminDetailsButtonClicked()" routerLink="/adminDetails">Admin Details</button>
     <button class="item" routerLink="/">Logout</button>
 </div>

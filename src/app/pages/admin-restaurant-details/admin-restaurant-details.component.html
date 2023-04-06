@@ -1,5 +1,8 @@
 <div class="background">
-    <app-restaurant-navbar></app-restaurant-navbar>
+    <app-restaurant-navbar
+    (transitionToAdminDetails)="transitionToAdminDetails($event)" 
+    (transitionToCurrentReservations)="transitionToCurrentReservations($event)">
+    </app-restaurant-navbar>
     <br>
     <div class="row">
         <app-menu-list [menuItems]="menuItems" (deletingItem)="deleteItem($event)"></app-menu-list>

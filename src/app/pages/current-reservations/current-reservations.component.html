@@ -1,3 +1,6 @@
-<app-restaurant-navbar></app-restaurant-navbar>
+<app-restaurant-navbar
+    (transitionToAdminDetails)="transitionToAdminDetails($event)" 
+    (transitionToCurrentReservations)="transitionToCurrentReservations($event)">
+</app-restaurant-navbar>
 <br>
 <app-reservation-list [reservations]="currentReservations"></app-reservation-list>
