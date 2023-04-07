@@ -21,7 +21,7 @@ export class RestaurantService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.post<Restaurant>("http://127.0.0.1:9000/restaurant/login", user, {headers: header});
+    return this.http.post<Restaurant>("http://54.174.143.19:9000/restaurant/login", user, {headers: header});
 
   }
   
@@ -30,7 +30,7 @@ export class RestaurantService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.post<Restaurant>("http://127.0.0.1:9000/restaurant/register", restaurant, {headers: header});
+    return this.http.post<Restaurant>("http://54.174.143.19:9000/restaurant/register", restaurant, {headers: header});
 
   }
 
@@ -39,7 +39,7 @@ export class RestaurantService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.get<Restaurant[]>("http://127.0.0.1:9000/restaurants", {headers: header});
+    return this.http.get<Restaurant[]>("http://54.174.143.19:9000/restaurants", {headers: header});
 
   }
 
@@ -48,7 +48,7 @@ export class RestaurantService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.get<Restaurant>(`http://127.0.0.1:9000/restaurant/${id}`, {headers: header});
+    return this.http.get<Restaurant>(`http://54.174.143.19:9000/restaurant/${id}`, {headers: header});
 
   }
 
@@ -57,7 +57,7 @@ export class RestaurantService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.patch<Restaurant>(`http://127.0.0.1/restaurant/${id}`, restaurant, {headers: header});
+    return this.http.patch<Restaurant>(`http://54.174.143.19:9000/restaurant/${id}`, restaurant, {headers: header});
 
   }
 
@@ -66,7 +66,7 @@ export class RestaurantService {
     let header : HttpHeaders = new HttpHeaders();
     header.append("accept", "text/json");
     header.append("Access-Control-Allow-Origin", "*");
-    return this.http.delete<Restaurant>(`http://127.0.0.1/restaurant/${id}`,  {headers: header});
+    return this.http.delete<Restaurant>(`http://54.174.143.19:9000/restaurant/${id}`,  {headers: header});
 
   }
   
